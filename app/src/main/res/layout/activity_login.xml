@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    tools:context=".Login_Activity">
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="122dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="285dp"
+        android:layout_marginBottom="8dp"
+        android:minHeight="48dp"
+        android:text="EMAIL"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="122dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="285dp"
+        android:minHeight="48dp"
+        android:text="PASSWORD"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="337dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/login_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <EditText
+            android:id="@+id/edtSignInEmail"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:background="@null"
+            android:hint="                                \@cit.edu"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/black"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/loginuser_icon" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="337dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/login_container"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassword">
+
+        <EditText
+            android:id="@+id/edtSignInPassword"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:background="@null"
+            android:hint="."
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#C8C8C8"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/loginpass_icon" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="340dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/button_enabled_color"
+        android:text="SIGN IN"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/txtSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:minHeight="48dp"
+        android:text="Don't have an account? Sign up here!"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

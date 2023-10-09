@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">PSPOT</string>
+
+    <string name="terms_and_conditions">
+
+        Acceptance of Terms \n\n
+
+By using the online parking system, you agree to comply with these terms and conditions. If you do not agree with any part of these terms, please refrain from using the service. \n
+\n
+P-SPOT Terms and Conditions\n\n
+
+1. User Eligibility\n
+You must be a registered student, faculty, or staff member of Cebu Institute of Technology - University to use the P-SPOT App. You may need to provide valid proof of your affiliation with the university to access certain features.\n\n
+
+2. Parking Reservations\n
+P-SPOT allows you to reserve parking spaces on the campus of Cebu Institute of Technology - University. Reservations are subject to availability and may be limited during peak hours.\n\n
+
+3. Parking Fees\n
+Users may be charged parking fees for the use of reserved parking spaces. All fees are non-refundable unless otherwise stated in the App.\n\n
+
+4. User Responsibility\n
+Users are responsible for providing accurate and up-to-date information during the reservation process. Failure to do so may result in the cancellation of your reservation. \n\n
+
+5. Cancellation Policy\n
+Users can cancel parking reservations through the App, subject to the cancellation policy outlined in the App. Cancellation fees may apply. \n\n
+
+6. Code of Conduct\n
+Users are expected to behave in a respectful and responsible manner while using the P-SPOT App and when on the Cebu Institute of Technology - University campus. Disruptive or inappropriate behavior may result in the suspension of your account.\n\n
+
+7. Privacy\n
+P-SPOT may collect and store personal information as outlined in its Privacy Policy. By using the app, you consent to the collection and use of your personal information as described in the Privacy Policy.\n\n
+
+8. Liability\n
+P-SPOT and Cebu Institute of Technology - University are not liable for any damage, loss, or theft of vehicles or personal property while on university premises. Users are responsible for their belongings and vehicles.\n\n
+
+9. Modification of Terms\n
+P-SPOT reserves the right to modify these Terms and Conditions at any time. Users will be notified of any changes through the App. Continued use of the app after such modifications implies acceptance of the revised Terms and Conditions.\n\n
+
+10. Termination\n
+P-SPOT reserves the right to terminate or suspend your account and access to the App at its discretion, without prior notice, for violation of these Terms and Conditions or any applicable laws.\n\n</string>
+</resources>
