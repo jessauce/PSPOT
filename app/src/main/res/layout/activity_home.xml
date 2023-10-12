@@ -25,14 +25,46 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="380dp"
                 android:layout_height="180dp"
                 android:layout_marginStart="52dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="27dp"
                 android:background="@drawable/rectangle_parklocations"
                 android:onClick="navigateToGLEMap"
                 tools:ignore="SpeakableTextPresentCheck">
+
+                <TextView
+                    android:id="@+id/GLEText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="30dp"
+                    android:text="GLE"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                    android:id="@+id/GLEText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Gregorio L. Escario"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
 
                 <ImageView
                     android:id="@+id/GLE"
@@ -40,7 +72,7 @@
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/glepic" />
 
             </RelativeLayout>
 
@@ -55,12 +87,37 @@
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <ImageView
-                    android:id="@+id/RTL"
+                    android:id="@+id/RTLpic"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/RTL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="30dp"
+                    android:text="RTL"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                    android:id="@+id/RTL2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Don Rodolfo T. Lizares"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
 
             </RelativeLayout>
 
@@ -73,6 +130,31 @@
                 android:background="@drawable/rectangle_parklocations"
                 android:onClick="toidk"
                 tools:ignore="SpeakableTextPresentCheck">
+
+                <TextView
+                    android:id="@+id/NGE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="30dp"
+                    android:text="NGE"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                    android:id="@+id/NGE2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Nicolas G. Escario"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
 
                 <ImageView
                     android:id="@+id/idk"
@@ -94,8 +176,34 @@
                 android:onClick="toNGE"
                 tools:ignore="SpeakableTextPresentCheck">
 
+                <TextView
+                    android:id="@+id/ALLIED"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="178dp"
+                    android:layout_marginTop="30dp"
+                    android:text="ALLIED"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="45sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                    android:id="@+id/ALLIED2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Nicolas G. Escario"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+
                 <ImageView
-                    android:id="@+id/NGE"
+                    android:id="@+id/Allied"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"

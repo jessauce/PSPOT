@@ -75,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (checkBox.isChecked()) {
                     navigateToLoginActivity();
-                } else {
+                } //else {
                     // Checkbox is not checked, display an error message or perform any other action
-                    Toast.makeText(MainActivity.this, "Please accept the terms and conditions", Toast.LENGTH_SHORT).show();
-                }
+                    //Toast.makeText(MainActivity.this, "Please accept the terms and conditions", Toast.LENGTH_SHORT).show();
+                //}
             }
         });
     }

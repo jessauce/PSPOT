@@ -4,38 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/parkmap_bg"
-    tools:context=".GLE_Parking_Map">
+    android:background="@drawable/demo_glebg"
+    tools:context=".GLE_ParkSpot">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="330dp"
-        android:layout_height="530dp"
-        android:layout_marginTop="271dp"
-        android:layout_marginBottom="239dp"
-        android:translationZ="-1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/expressbusbutton"
+        android:layout_width="405dp"
+        android:layout_height="664dp"
+        android:layout_marginTop="245dp"
+        android:background="@android:color/transparent"
+        android:onClick="navigateToVehicleTimer1"
+        android:text="."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
-    <Button
-        android:id="@+id/btnConfirm"
-        android:layout_width="340dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="131dp"
-        android:backgroundTint="#FDDF67"
-        android:text="Confirm Location"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottomBar"
@@ -99,6 +82,6 @@
                 android:src="@drawable/profile_icon" />
 
         </LinearLayout>
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

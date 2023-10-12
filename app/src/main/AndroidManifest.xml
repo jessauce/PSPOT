@@ -13,6 +13,12 @@
         android:theme="@style/Theme.PSPOT"
         tools:targetApi="31">
         <activity
+            android:name=".Car_Vehicle_Limit"
+            android:exported="false" />
+        <activity
+            android:name=".GLE_ParkSpot"
+            android:exported="false" />
+        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity
