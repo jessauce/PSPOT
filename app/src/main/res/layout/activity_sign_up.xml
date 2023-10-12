@@ -20,10 +20,10 @@
 
         <EditText
             android:id="@+id/SignUpName"
-            android:layout_width="290dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="60dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
             android:hint="Name"
@@ -33,6 +33,15 @@
             android:textColorHint="#3B3B3B"
             android:textSize="18dp"
             tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/loginuser_icon" />
 
     </RelativeLayout>
 
@@ -52,16 +61,25 @@
             android:id="@+id/SignUpEmail"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="60dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
-            android:hint="Email                                     \@cit.edu"
+            android:hint="Email                           \@cit.edu"
             android:inputType="text"
             android:minHeight="48dp"
             android:textColor="#000000"
             android:textColorHint="#3B3B3B"
             android:textSize="18dp"
             tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageViewemail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/email_icon" />
 
     </RelativeLayout>
 
@@ -109,10 +127,10 @@
 
         <EditText
             android:id="@+id/SignUpPassword"
-            android:layout_width="290dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="60dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
             android:hint="Password"
@@ -122,6 +140,15 @@
             android:textColorHint="#3B3B3B"
             android:textSize="18dp"
             tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/loginpass_icon" />
 
     </RelativeLayout>
 
@@ -142,7 +169,7 @@
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="60dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
             android:hint="Confirm Password"
@@ -152,6 +179,15 @@
             android:textColorHint="#3B3B3B"
             android:textSize="18dp"
             tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/loginpass_icon" />
 
     </RelativeLayout>
 
