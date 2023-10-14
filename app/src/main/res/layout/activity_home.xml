@@ -83,7 +83,6 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="27dp"
                 android:background="@drawable/rectangle_parklocations"
-                android:onClick="toRTL"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <ImageView
@@ -128,7 +127,6 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="27dp"
                 android:background="@drawable/rectangle_parklocations"
-                android:onClick="toidk"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <TextView
@@ -173,7 +171,6 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="27dp"
                 android:background="@drawable/rectangle_parklocations"
-                android:onClick="toNGE"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <TextView
@@ -193,9 +190,9 @@
                     android:id="@+id/ALLIED2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="170dp"
+                    android:layout_marginStart="186dp"
                     android:layout_marginTop="100dp"
-                    android:text="Nicolas G. Escario"
+                    android:text="Allied Building"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     tools:layout_editor_absoluteX="186dp"
@@ -246,7 +243,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:gravity="center"
-            android:onClick="onParkInfoButtonClick"
+
             android:orientation="vertical"
             tools:ignore="SpeakableTextPresentCheck">
 
