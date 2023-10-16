@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gcashbg"
+    tools:context=".Gcash">
+
+    <Button
+        android:id="@+id/btnProceedpayment"
+        android:layout_width="340dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#0268EC"
+        android:text="Proceed"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/no1"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num1"
+        app:layout_constraintBottom_toTopOf="@+id/no4"
+        app:layout_constraintEnd_toStartOf="@+id/no2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no3"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num3"
+        app:layout_constraintBottom_toTopOf="@+id/no6"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no4"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num4"
+        app:layout_constraintBottom_toTopOf="@+id/no7"
+        app:layout_constraintEnd_toStartOf="@+id/no5"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no5"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num5"
+        app:layout_constraintBottom_toTopOf="@+id/no8"
+        app:layout_constraintEnd_toStartOf="@+id/no6"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no6"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num6"
+        app:layout_constraintBottom_toTopOf="@+id/no9"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no7"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="175dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num7"
+        app:layout_constraintBottom_toTopOf="@+id/btnProceedpayment"
+        app:layout_constraintEnd_toStartOf="@+id/no8"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no8"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num8"
+        app:layout_constraintBottom_toTopOf="@+id/no0"
+        app:layout_constraintEnd_toStartOf="@+id/no9"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no9"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="175dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num9"
+        app:layout_constraintBottom_toTopOf="@+id/btnProceedpayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no2"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="55dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num2"
+        app:layout_constraintBottom_toTopOf="@+id/no5"
+        app:layout_constraintEnd_toStartOf="@+id/no3"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/no0"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="203dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginBottom="44dp"
+        android:clickable="true"
+        android:onClick="onNumericButtonClick"
+        android:src="@drawable/num0"
+        app:layout_constraintBottom_toTopOf="@+id/btnProceedpayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/dotPass1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/dotpass"
+        app:layout_constraintBottom_toTopOf="@+id/no1"
+        app:layout_constraintEnd_toStartOf="@+id/dotPass2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/dotPass2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="560dp"
+        android:src="@drawable/dotpass"
+        app:layout_constraintBottom_toTopOf="@+id/btnProceedpayment"
+        app:layout_constraintEnd_toStartOf="@+id/dotPass3"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/dotPass3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="560dp"
+        android:src="@drawable/dotpass"
+        app:layout_constraintBottom_toTopOf="@+id/btnProceedpayment"
+        app:layout_constraintEnd_toStartOf="@+id/dotPass4"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/dotPass4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/dotpass"
+        app:layout_constraintBottom_toTopOf="@+id/no3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

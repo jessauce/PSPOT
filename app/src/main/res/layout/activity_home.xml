@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
+    android:background="@drawable/homebg_final"
     tools:context=".Home">
 
     <ScrollView
@@ -26,8 +26,23 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="120dp">
 
+                <ImageView
+                    android:id="@+id/V1"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@color/black" />
+
+                <ImageView
+                    android:id="@+id/V2"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="260dp"
+                    android:src="@color/black" />
 
             </RelativeLayout>
 
@@ -35,10 +50,54 @@
                 android:layout_width="380dp"
                 android:layout_height="180dp"
                 android:layout_marginStart="52dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="27dp"
                 android:background="@drawable/rectangle_parklocations"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <TextView
+                    android:id="@+id/Main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginTop="30dp"
+                    android:text="MAIN"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="50sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                    android:id="@+id/Main2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="175dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Main Parking Lot"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                    android:id="@+id/MainPic"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/mainpic" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="380dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="27dp"
                 android:onClick="navigateToGLEMap"
+                android:background="@drawable/rectangle_parklocations"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <TextView
@@ -110,7 +169,7 @@
                     android:id="@+id/RTL2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
+                    android:layout_marginStart="152dp"
                     android:layout_marginTop="100dp"
                     android:text="Don Rodolfo T. Lizares"
                     android:textColor="@color/black"

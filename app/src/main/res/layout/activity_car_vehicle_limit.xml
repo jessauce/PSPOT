@@ -4,14 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/demo_vehicletimer"
+    android:background="@drawable/car_vehicle_limitbg"
     tools:context=".Car_Vehicle_Limit">
+
+    <ImageView
+        android:id="@+id/backtoHomebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="403dp"
+        android:onClick="navigateToBack"
+        android:src="@drawable/black_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <TextView
+        android:id="@+id/PlateNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:text="PLATE NUMBER"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Parkingtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="535dp"
+        android:layout_marginEnd="347dp"
+        android:text="GLE"
+        android:textColor="#a6a6a6"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Plottext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="535dp"
+        android:layout_marginEnd="96dp"
+        android:text="A1"
+        android:textColor="#a6a6a6"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/timeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginBottom="278dp"
+        android:background="@drawable/rectangle_parklocations"
+        android:backgroundTint="@color/black"
+        android:onClick="openTimePicker"
+        android:text="12:00 ▼"
+        android:textColor="#a6a6a6"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Pricetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="193dp"
+        android:text="Php 0"
+        android:textColor="#a6a6a6"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnProceedpayment"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="80dp"
         android:backgroundTint="#FDDF67"
         android:text="Proceed to Payment"
         android:textColor="@color/black"
@@ -22,68 +111,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:background="#FDDF67"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:onClick="navigateToHome"
-        android:orientation="vertical"
-        tools:ignore="SpeakableTextPresentCheck">
-
-        <ImageView
-            android:id="@+id/homeButtonImage"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:src="@drawable/home_icon" />
-
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:gravity="center"
-        android:onClick="onParkInfoButtonClick"
-        android:orientation="vertical"
-        tools:ignore="SpeakableTextPresentCheck">
-
-        <ImageView
-            android:id="@+id/ticketsButtonImage"
-            android:layout_width="65dp"
-            android:layout_height="74dp"
-            android:src="@drawable/parkinginfo_icon" />
-
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:gravity="center"
-        android:onClick="onProfileButtonClick"
-        android:orientation="vertical"
-        tools:ignore="SpeakableTextPresentCheck">
-
-        <ImageView
-            android:id="@+id/profileButtonImage"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/profile_icon" />
-
-        </LinearLayout>
-    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="237dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
