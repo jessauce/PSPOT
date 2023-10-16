@@ -11,14 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.regex.Pattern;
 
 public class Login_Activity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         Button SignInbutton = findViewById(R.id.btnSignIn);
         TextView textView = findViewById(R.id.txtSignUp);
@@ -30,6 +40,9 @@ public class Login_Activity extends AppCompatActivity {
         UnderlineSpan underlineSpan = new UnderlineSpan();
         ss.setSpan(underlineSpan, 23, 36, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(ss);
+
+
+
 
         SignInbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,9 +58,23 @@ public class Login_Activity extends AppCompatActivity {
                     Toast.makeText(Login_Activity.this, "Email is invalid. Use institutional email.", Toast.LENGTH_SHORT).show();
                 } else {
                     // Proceed to sign in if fields are not empty and email format is correct
-                    Intent intent = new Intent(Login_Activity.this, Home.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Implement your sign-in logic here
+                    // For example, you can use Firebase authentication to sign in the user
+                    // Replace the following lines with your Firebase authentication code
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(Login_Activity.this, task -> {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Intent intent = new Intent(Login_Activity.this, Home.class);
+                                    startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(Login_Activity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                 }
             }
         });
@@ -58,6 +85,7 @@ public class Login_Activity extends AppCompatActivity {
                 Intent intent = new Intent(Login_Activity.this, SignUp_Activity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
     }
