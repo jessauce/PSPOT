@@ -8,10 +8,25 @@
     tools:context=".Vehicle_Info">
 
     <Button
+        android:id="@+id/button2"
+        android:layout_width="168dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="388dp"
+        android:backgroundTint="#FEF0BA"
+        android:text="4-Wheel"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/btnRegister"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="#1C2120"
         android:text="Register"
         android:textColor="@color/white"
@@ -19,7 +34,123 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="168dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="388dp"
+        android:backgroundTint="#FEF0BA"
+        android:text="2-Wheel"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#FEF0BA" />
+
+    <RelativeLayout
+        android:id="@+id/Model"
+        android:layout_width="337dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="309dp"
+        android:background="@drawable/login_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/CarModel"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:hint="Model"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Color"
+        android:layout_width="337dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="245dp"
+        android:background="@drawable/login_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/CarColor"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:hint="Color"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/PlateNumber"
+        android:layout_width="337dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="178dp"
+        android:background="@drawable/login_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/PlateNum"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:hint="Plate Number"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="127dp"
+
+        android:minHeight="48dp"
+        android:text="Do you have another vehicle?"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
