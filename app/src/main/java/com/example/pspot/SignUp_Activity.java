@@ -174,7 +174,7 @@ public class SignUp_Activity extends AppCompatActivity {
         userRef.set(user)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(SignUp_Activity.this, "Signup successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SignUp_Activity.this, Vehicle_Info.class);
+                    Intent intent = new Intent(SignUp_Activity.this, Login_Activity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 })

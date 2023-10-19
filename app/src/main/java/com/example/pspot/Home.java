@@ -15,7 +15,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void onProfileButtonClick(View view) {
-        Intent intent = new Intent(Home.this, Profile.class);
+        Intent intent = new Intent(Home.this, Vehicle_Info.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
