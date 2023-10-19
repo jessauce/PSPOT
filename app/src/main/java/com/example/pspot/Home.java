@@ -27,4 +27,10 @@ public class Home extends AppCompatActivity {
 
     }
 
+    public void navigateToCarVehicleParked(View view) {
+        Intent intent = new Intent(Home.this, Car_Vehicle_Parked.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
 }

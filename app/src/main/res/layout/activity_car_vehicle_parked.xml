@@ -11,7 +11,7 @@
         android:id="@+id/PlateNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="472dp"
+        android:layout_marginTop="465dp"
         android:text="PLATE NUMBER"
         android:textColor="@color/white"
         android:textSize="40sp"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="609dp"
+        android:layout_marginTop="585dp"
         android:layout_marginEnd="341dp"
         android:text="GLE"
         android:textColor="#a6a6a6"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="334dp"
-        android:layout_marginTop="609dp"
+        android:layout_marginTop="585dp"
         android:layout_marginEnd="102dp"
         android:text="A1"
         android:textColor="#a6a6a6"
@@ -55,9 +55,9 @@
         android:id="@+id/btnProceedpayment"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="169dp"
+        android:layout_marginBottom="140dp"
         android:backgroundTint="#FDDF67"
-        android:text="Proceed to Payment"
+        android:text="STOP"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -86,9 +86,10 @@
 
             <ImageView
                 android:id="@+id/homeButtonImage"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:src="@drawable/home_icon" />
+                android:layout_marginTop="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/home_icon2" />
 
         </LinearLayout>
 
@@ -105,7 +106,7 @@
                 android:id="@+id/ticketsButtonImage"
                 android:layout_width="65dp"
                 android:layout_height="74dp"
-                android:src="@drawable/parkinginfo_icon" />
+                android:src="@drawable/pinfo_icon" />
 
         </LinearLayout>
 

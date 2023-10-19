@@ -28,21 +28,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
 
-                <ImageView
-                    android:id="@+id/V1"
-                    android:layout_width="150dp"
+                <Button
+                    android:id="@+id/btn4wheel"
+                    android:layout_width="140dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginStart="50dp"
-                    android:src="@color/black" />
+                    android:layout_marginStart="80dp"
+                    android:backgroundTint="#F6F6F6"
+                    android:text="4 - Wheel"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
-                <ImageView
-                    android:id="@+id/V2"
-                    android:layout_width="150dp"
+                <Button
+                    android:id="@+id/btn2wheel"
+                    android:layout_width="140dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginStart="260dp"
-                    android:src="@color/black" />
+                    android:backgroundTint="#F6F6F6"
+                    android:text="2 - Wheel"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
 
             </RelativeLayout>
 
@@ -150,7 +157,7 @@
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/rtl_building" />
 
                 <TextView
                     android:id="@+id/RTL"
@@ -264,7 +271,7 @@
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/allied" />
 
             </RelativeLayout>
 
@@ -302,7 +309,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:gravity="center"
-
+android:onClick="navigateToCarVehicleParked"
             android:orientation="vertical"
             tools:ignore="SpeakableTextPresentCheck">
 

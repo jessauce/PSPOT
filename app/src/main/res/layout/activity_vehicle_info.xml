@@ -11,22 +11,19 @@
         android:id="@+id/button2"
         android:layout_width="168dp"
         android:layout_height="58dp"
-        android:layout_marginStart="215dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="52dp"
         android:backgroundTint="#FEF0BA"
         android:text="4-Wheel"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="#1C2120"
         android:text="Register"
         android:textColor="@color/white"
@@ -34,30 +31,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="168dp"
         android:layout_height="58dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="480dp"
         android:backgroundTint="#FEF0BA"
         android:text="2-Wheel"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#FEF0BA" />
 
     <RelativeLayout
         android:id="@+id/Model"
         android:layout_width="337dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="309dp"
+        android:layout_marginBottom="360dp"
         android:background="@drawable/login_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +80,7 @@
         android:id="@+id/Color"
         android:layout_width="337dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="245dp"
+        android:layout_marginBottom="280dp"
         android:background="@drawable/login_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +109,7 @@
         android:id="@+id/PlateNumber"
         android:layout_width="337dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="178dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/login_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,17 +134,16 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/textEmail"
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="127dp"
-
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="815dp"
         android:minHeight="48dp"
         android:text="Do you have another vehicle?"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

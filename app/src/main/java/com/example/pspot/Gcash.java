@@ -46,9 +46,9 @@ public class Gcash extends AppCompatActivity {
     }
 
     public void navigateToGcash2Page(View view) {
-        Intent intent = new Intent(Gcash.this, Gcash2.class);
-        intent.putExtra("selectedDate", selectedDate);
+        Intent intent = new Intent(Gcash.this, Gcash3.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void onNumericButtonClick(View view) {
