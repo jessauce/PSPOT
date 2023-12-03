@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/changepass_bg"
+    tools:context=".Change_Pass">
+
+    <ImageView
+        android:id="@+id/backtoHomebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:onClick="navigateToProfile"
+        android:src="@drawable/black_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="340dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="75dp"
+        android:backgroundTint="@color/button_enabled_color"
+        android:text="Reset Password"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textPass"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="380dp"
+        android:minHeight="48dp"
+        android:text="Current Password"
+        android:textColor="#3B3B3B"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/EmailRec"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="420dp"
+        android:background="@drawable/pdata_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textNewPass"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="31dp"
+        android:minHeight="48dp"
+        android:text="New Password"
+        android:textColor="#3B3B3B"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailRec" />
+
+    <RelativeLayout
+        android:id="@+id/NewEmailRec"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/pdata_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNewPass">
+
+        <EditText
+            android:id="@+id/NewEmail"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ConfirmPass"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="34dp"
+        android:minHeight="48dp"
+        android:text="Current Password"
+        android:textColor="#3B3B3B"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewEmailRec" />
+
+    <RelativeLayout
+        android:id="@+id/ConfirmEmailRec"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/pdata_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmPass">
+
+        <EditText
+            android:id="@+id/ConfirmEmail"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#3B3B3B"
+            android:textSize="18dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

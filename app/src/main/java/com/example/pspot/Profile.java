@@ -32,4 +32,19 @@ public class Profile extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+    public void navigateToPersonalData(View view) {
+        Intent intent = new Intent(Profile.this, PersonalData.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    public void navigateToChangePass(View view) {
+        Intent intent = new Intent(Profile.this, Change_Pass.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    public void navigateToAboutUs(View view) {
+        Intent intent = new Intent(Profile.this, About_Us.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 }

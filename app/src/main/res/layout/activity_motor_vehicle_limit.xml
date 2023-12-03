@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/carvehiclelimit_bg"
-    tools:context=".Car_Vehicle_Limit">
+    android:background="@drawable/motorvehiclelimit_bg"
+    tools:context=".Motor_Vehicle_Limit">
 
     <ImageView
         android:id="@+id/backtoHomebutton"
@@ -20,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
-
 
     <TextView
         android:id="@+id/PlateNumber"
@@ -43,7 +42,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="535dp"
         android:layout_marginEnd="347dp"
-        android:text="GLE"
+        android:text="Allied"
         android:textColor="#a6a6a6"
         android:textSize="35sp"
         android:textStyle="bold"

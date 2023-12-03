@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aboutus_bg"
+    tools:context=".About_Us">
+
+    <ImageView
+        android:id="@+id/backtoHomebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:onClick="navigateToProfile"
+        android:src="@drawable/black_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backtoHomebutton"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/aboutUsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="\t\t\t\t\t\t\t\t\tWelcome to P-Spot!\n\nAt P-Spot, we are dedicated to providing an efficient and hassle-free parking experience tailored exclusively for our school community. We understand the unique challenges of parking on campus, and our mission is to simplify and improve this essential aspect of your daily routine.\n\n\t\t\t\t\t\t\t\t\t\t\tOur Story\n\nP-Spot was developed with the sole purpose of addressing the parking needs of our school community. Our founders, who are passionate about enhancing the campus experience, set out to create a parking system that would make it easier for students, faculty, and staff to find parking spots quickly and with minimal stress. \n\n\t\t\t\t\t\t\t\t\t\t\tOur Mission\n\nOur mission is straightforward: to optimize the parking experience within our school campus. We aim to provide a seamless, affordable, and convenient parking solution exclusively for students, faculty, and staff members.\n\n\t\t\t\t\t\t\t\t\t\tMeet Our Team\n\nOur dedicated team is composed of individuals who are deeply connected to our school community. We understand the unique challenges and opportunities of campus life, and we are here to make your parking experience as smooth as possible.\n\n\t\t\t\t\t\t\t\t\t\t\tContact Us\n\nIf you have any questions, feedback, or require assistance, please don't hesitate to reach out to our dedicated campus parking support team.\n\nThank you for choosing P-Spot as your parking solution within our school community. We're excited to contribute to a more convenient and accessible campus experience for all.\n\nDeveloped by: \nCalasang, Ma. Christine \nJumapit, Klint Ian \nOmero, Jessica \nParco, Romeo Gabriel \nPau, Chloe Anne Lhaika\n\nP-SPOT\nCebu Institute of Technology - University"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

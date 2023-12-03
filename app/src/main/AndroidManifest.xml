@@ -25,6 +25,36 @@
         android:theme="@style/Theme.PSPOT"
         tools:targetApi="31">
         <activity
+            android:name=".Motor_Vehicle_Limit"
+            android:exported="false" />
+        <activity
+            android:name=".Allied_ParkSpot"
+            android:exported="false" />
+        <activity
+            android:name=".Allied_ParkingMap"
+            android:exported="false" />
+        <activity
+            android:name=".Main_ParkingMap"
+            android:exported="false" />
+        <activity
+            android:name=".Main_ParkSpot"
+            android:exported="false" />
+        <activity
+            android:name=".About_Us"
+            android:exported="false" />
+        <activity
+            android:name=".Change_Pass"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalData"
+            android:exported="false" />
+        <activity
+            android:name=".NGE_ParkSpot"
+            android:exported="false" />
+        <activity
+            android:name=".NGE_Parking_Map"
+            android:exported="false" />
+        <activity
             android:name=".Gcash4"
             android:exported="false" />
         <activity

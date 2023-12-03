@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/parkmap_bg"
-    tools:context=".GLE_Parking_Map">
+    tools:context=".Allied_ParkingMap">
 
     <ImageView
         android:id="@+id/backtoHomebutton"
@@ -40,15 +40,15 @@
         android:id="@+id/btnConfirm"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="112dp"
         android:backgroundTint="#FDDF67"
         android:text="Confirm Location"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:onClick="navigateToAlliedSpot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -112,5 +112,7 @@
                 android:src="@drawable/profile_icon" />
 
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

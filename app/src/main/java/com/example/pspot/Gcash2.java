@@ -16,6 +16,7 @@ public class Gcash2 extends AppCompatActivity {
 
     public void navigateToGcash3Page(View view) {
         Intent intent = new Intent(Gcash2.this, Gcash3.class);
+        intent.putExtra("ParkingText", getIntent().getStringExtra("ParkingText"));
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

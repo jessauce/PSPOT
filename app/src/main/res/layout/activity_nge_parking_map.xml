@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/parkmap_bg"
-    tools:context=".GLE_Parking_Map">
+    tools:context=".NGE_Parking_Map">
 
     <ImageView
         android:id="@+id/backtoHomebutton"
@@ -112,5 +112,6 @@
                 android:src="@drawable/profile_icon" />
 
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

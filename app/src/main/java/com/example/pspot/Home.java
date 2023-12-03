@@ -24,7 +24,17 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(Home.this, GLE_Parking_Map.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    public void navigateToNGEMap(View view) {
+        Intent intent = new Intent(Home.this, NGE_Parking_Map.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 
+    public void navigateToAlliedMap(View view) {
+        Intent intent = new Intent(Home.this, Allied_ParkingMap.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void navigateToCarVehicleParked(View view) {

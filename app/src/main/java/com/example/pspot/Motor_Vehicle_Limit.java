@@ -20,7 +20,7 @@ import android.widget.TimePicker;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-public class Car_Vehicle_Limit extends AppCompatActivity {
+public class Motor_Vehicle_Limit extends AppCompatActivity {
 
     private boolean isProgressShowing = false;
 
@@ -39,21 +39,8 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_vehicle_limit);
+        setContentView(R.layout.activity_motor_vehicle_limit);
 
-        // Check if the user is coming from NGE_ParkSpot
-        boolean fromNGEParkSpot = getIntent().getBooleanExtra("fromNGEParkSpot", false);
-
-        parkingtext = findViewById(R.id.Parkingtext);
-
-
-        // Update Parkingtext based on whether the user is coming from NGE_ParkSpot
-        if (fromNGEParkSpot) {
-            parkingtext.setText("NGE");
-        } else {
-            // Set the default text or handle accordingly
-            parkingtext.setText("GLE");
-        }
 
         starttimeButton = findViewById(R.id.starttimeButton);
         endtimeButton = findViewById(R.id.endtimeButton);
@@ -128,7 +115,7 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
     }
 
     public void navigateToBack(View view) {
-        Intent intent = new Intent(Car_Vehicle_Limit.this, GLE_ParkSpot.class);
+        Intent intent = new Intent(Motor_Vehicle_Limit.this, Allied_ParkSpot.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
@@ -176,7 +163,7 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Handle the click event to navigate to the Gcash page
-                        Intent intent = new Intent(Car_Vehicle_Limit.this, Gcash.class);
+                        Intent intent = new Intent(Motor_Vehicle_Limit.this, Gcash.class);
                         intent.putExtra("ParkingText", parkingtext.getText().toString());
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/choose_spot_bg"
+    tools:context=".Main_ParkSpot">
+
+    <RelativeLayout
+        android:id="@+id/seattopBar"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backtoGLEMapbutton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/yellow_button"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/selectedspot"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/selectedcarspot" />
+
+        <TextView
+            android:id="@+id/selectedtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="168dp"
+            android:text="Selected"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="443dp" />
+
+        <ImageView
+            android:id="@+id/availablespot"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/availablecarspot" />
+
+        <TextView
+            android:id="@+id/availabletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="168dp"
+            android:text="Available"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="443dp" />
+
+        <ImageView
+            android:id="@+id/unavailablespot"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="308dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/unavailablecarspot" />
+
+        <TextView
+            android:id="@+id/unavailabletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="358dp"
+            android:layout_marginTop="168dp"
+            android:text="Unavailable"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="443dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="610dp"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="vertical">
+        
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal">
+
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="85dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                android:id="@+id/onetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="30dp"
+                android:text="1"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                android:id="@+id/twotext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="370dp"
+                android:layout_marginTop="30dp"
+                android:text="2"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <TextView
+                android:id="@+id/fourtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="520dp"
+                android:layout_marginTop="30dp"
+                android:text="3"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/threetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="800dp"
+                    android:layout_marginTop="30dp"
+                    android:text="4"
+                    android:textColor="#a6a6a6"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                android:id="@+id/A1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Atext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="110dp"
+                android:text="A"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/A2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/B1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="180dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Btext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="210dp"
+                android:text="B"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/B2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="180dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/C1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="280dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Ctext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="310dp"
+                android:text="C"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/C2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="280dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/D1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="380dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Dtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="410dp"
+                android:text="D"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/D2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="380dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/E1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="480dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Etext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="510dp"
+                android:text="E"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/E2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="480dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/F1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="580dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Ftext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="610dp"
+                android:text="F"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/F2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="580dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/G1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="680dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Gtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="710dp"
+                android:text="G"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/G2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="680dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                android:id="@+id/H1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="780dp"
+                android:src="@drawable/availablecarspot" />
+
+                <TextView
+                android:id="@+id/Htext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="810dp"
+                android:text="H"
+                android:textColor="#a6a6a6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="186dp"
+                tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                android:id="@+id/H2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="780dp"
+                android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                    android:id="@+id/I3"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="480dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/availablecarspot" />
+
+                <TextView
+                    android:id="@+id/Itext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="665dp"
+                    android:layout_marginTop="110dp"
+                    android:text="I"
+                    android:textColor="#a6a6a6"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                    android:id="@+id/I4"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="765dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/availablecarspot2" />
+
+                <ImageView
+                    android:id="@+id/J3"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="480dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/availablecarspot" />
+
+                <TextView
+                    android:id="@+id/Jtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="665dp"
+                    android:layout_marginTop="110dp"
+                    android:text="J"
+                    android:textColor="#a6a6a6"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="186dp"
+                    tools:layout_editor_absoluteY="443dp" />
+
+                <ImageView
+                    android:id="@+id/J4"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="765dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/availablecarspot2" />
+
+            </RelativeLayout>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/checkoutBar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/bottomcheckout"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/parkspottext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="15dp"
+            android:text="Parking Spot Taken: - "
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/totalstandardtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="8dp"
+            android:text="Total Price: ₱00"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnCheckout"
+            android:layout_width="340dp"
+            android:layout_height="65dp"
+            android:backgroundTint="#1C2120"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="10dp"
+            android:text="Check Out"
+            android:textColor="@color/white"
+            android:onClick="navigateToVehicleTimer1"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

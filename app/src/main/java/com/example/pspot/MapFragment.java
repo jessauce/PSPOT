@@ -2,6 +2,7 @@ package com.example.pspot;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.google.android.gms.maps.CameraUpdate;
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private GLE_Parking_Map homeActivity;
+    private AppCompatActivity homeActivity;
     private double lat;
     private double lng;
 
@@ -61,7 +62,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(markerOptions);
     }
 
-    public void setHomeActivity(GLE_Parking_Map homeActivity) {
+    public void setHomeActivity(AppCompatActivity homeActivity) {
         this.homeActivity = homeActivity;
     }
 }

@@ -30,7 +30,7 @@
         android:layout_marginEnd="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:background="@drawable/dpicon" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout3"
@@ -39,6 +39,7 @@
         android:layout_marginTop="300dp"
         android:background="@drawable/profile_rectangle"
         android:clickable="true"
+        android:onClick="navigateToPersonalData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +76,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/profile_rectangle"
         android:clickable="true"
+        android:onClick="navigateToChangePass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +149,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/profile_rectangle"
         android:clickable="true"
+        android:onClick="navigateToAboutUs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,12 +182,11 @@
     <RelativeLayout
         android:layout_width="400dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="168dp"
         android:background="@drawable/profile_rectangle"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView

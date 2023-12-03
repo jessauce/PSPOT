@@ -15,6 +15,7 @@ public class Gcash4 extends AppCompatActivity {
     }
     public void navigateToCarVehicleParked(View view) {
         Intent intent = new Intent(Gcash4.this, Car_Vehicle_Parked.class);
+        intent.putExtra("ParkingText", getIntent().getStringExtra("ParkingText"));
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
