@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class Allied_ParkSpot extends AppCompatActivity {
 
+    private int totalPrice = 0;
+
     private boolean a1Selected = false;
     private boolean a2Selected = false;
     private boolean b1Selected = false;
@@ -396,6 +398,14 @@ public class Allied_ParkSpot extends AppCompatActivity {
         // Update the parkspottext TextView
         TextView parkspottext = findViewById(R.id.parkspottext);
         parkspottext.setText("Parking Spot Taken: " + spotName);
+
+        // Update the totalstandardtext TextView
+        TextView totalStandardText = findViewById(R.id.totalstandardtext);
+        if (isSelected) {
+            totalStandardText.setText("Total Price: ₱5.00");
+        } else {
+            totalStandardText.setText("Total Price: ₱00");
+        }
     }
 
 
