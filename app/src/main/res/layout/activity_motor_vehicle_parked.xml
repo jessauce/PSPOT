@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/car_parkedbg"
-    tools:context=".Car_Vehicle_Parked">
+    android:background="@drawable/motor_parkedbg"
+    tools:context=".Motor_Vehicle_Parked">
 
     <TextView
         android:id="@+id/PlateNumber"
@@ -28,7 +28,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginTop="585dp"
         android:layout_marginEnd="341dp"
-        android:text="GLE"
+        android:text="Allied"
         android:textColor="#a6a6a6"
         android:textSize="35sp"
         android:textStyle="bold"

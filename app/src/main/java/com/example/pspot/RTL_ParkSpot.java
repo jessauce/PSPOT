@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Main_ParkSpot extends AppCompatActivity {
+public class RTL_ParkSpot extends AppCompatActivity {
+
     private boolean a1Selected = false;
     private boolean a2Selected = false;
     private boolean b1Selected = false;
@@ -19,33 +20,30 @@ public class Main_ParkSpot extends AppCompatActivity {
     private boolean d2Selected = false;
     private boolean e1Selected = false;
     private boolean e2Selected = false;
-    private boolean f3Selected = false;
-    private boolean f4Selected = false;
-    private boolean g3Selected = false;
-    private boolean g4Selected = false;
+    private boolean f1Selected = false;
+    private boolean f2Selected = false;
+    private boolean g1Selected = false;
+    private boolean g2Selected = false;
     private boolean h3Selected = false;
     private boolean h4Selected = false;
     private boolean i3Selected = false;
     private boolean i4Selected = false;
     private boolean j3Selected = false;
     private boolean j4Selected = false;
-    private boolean k5Selected = false;
-    private boolean k6Selected = false;
-    private boolean l5Selected = false;
-    private boolean l6Selected = false;
-    private boolean m5Selected = false;
-    private boolean m6Selected = false;
-    private boolean n5Selected = false;
-    private boolean n6Selected = false;
-    private boolean o5Selected = false;
-    private boolean o6Selected = false;
+    private boolean k3Selected = false;
+    private boolean k4Selected = false;
+    private boolean l3Selected = false;
+    private boolean l4Selected = false;
+    private boolean m3Selected = false;
+    private boolean m4Selected = false;
+    private boolean n3Selected = false;
+    private boolean n4Selected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_park_spot);
+        setContentView(R.layout.activity_rtl_park_spot);
 
-// Find the parking spot ImageView elements
         ImageView a1ImageView = findViewById(R.id.A1);
         ImageView a2ImageView = findViewById(R.id.A2);
         ImageView b1ImageView = findViewById(R.id.B1);
@@ -56,28 +54,25 @@ public class Main_ParkSpot extends AppCompatActivity {
         ImageView d2ImageView = findViewById(R.id.D2);
         ImageView e1ImageView = findViewById(R.id.E1);
         ImageView e2ImageView = findViewById(R.id.E2);
-        ImageView f3ImageView = findViewById(R.id.F3);
-        ImageView f4ImageView = findViewById(R.id.F4);
-        ImageView g3ImageView = findViewById(R.id.G3);
-        ImageView g4ImageView = findViewById(R.id.G4);
+        ImageView f1ImageView = findViewById(R.id.F1);
+        ImageView f2ImageView = findViewById(R.id.F2);
+        ImageView g1ImageView = findViewById(R.id.G1);
+        ImageView g2ImageView = findViewById(R.id.G2);
         ImageView h3ImageView = findViewById(R.id.H3);
         ImageView h4ImageView = findViewById(R.id.H4);
         ImageView i3ImageView = findViewById(R.id.I3);
         ImageView i4ImageView = findViewById(R.id.I4);
         ImageView j3ImageView = findViewById(R.id.J3);
         ImageView j4ImageView = findViewById(R.id.J4);
-        ImageView k5ImageView = findViewById(R.id.K5);
-        ImageView k6ImageView = findViewById(R.id.K6);
-        ImageView l5ImageView = findViewById(R.id.L5);
-        ImageView l6ImageView = findViewById(R.id.L6);
-        ImageView m5ImageView = findViewById(R.id.M5);
-        ImageView m6ImageView = findViewById(R.id.M6);
-        ImageView n5ImageView = findViewById(R.id.N5);
-        ImageView n6ImageView = findViewById(R.id.N6);
-        ImageView o5ImageView = findViewById(R.id.O5);
-        ImageView o6ImageView = findViewById(R.id.O6);
+        ImageView k3ImageView = findViewById(R.id.K3);
+        ImageView k4ImageView = findViewById(R.id.K4);
+        ImageView l3ImageView = findViewById(R.id.L3);
+        ImageView l4ImageView = findViewById(R.id.L4);
+        ImageView m3ImageView = findViewById(R.id.M3);
+        ImageView m4ImageView = findViewById(R.id.M4);
+        ImageView n3ImageView = findViewById(R.id.N3);
+        ImageView n4ImageView = findViewById(R.id.N4);
 
-        // Set click listeners for the parking spot ImageView elements
         a1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,35 +151,35 @@ public class Main_ParkSpot extends AppCompatActivity {
             }
         });
 
-        f3ImageView.setOnClickListener(new View.OnClickListener() {
+        f1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(f3ImageView, f3Selected);
-                f3Selected = !f3Selected;
+                toggleSpot(f1ImageView, f1Selected);
+                f1Selected = !f1Selected;
             }
         });
 
-        f4ImageView.setOnClickListener(new View.OnClickListener() {
+        f2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(f4ImageView, f4Selected);
-                f4Selected = !f4Selected;
+                toggleSpot(f2ImageView, f2Selected);
+                f2Selected = !f2Selected;
             }
         });
 
-        g3ImageView.setOnClickListener(new View.OnClickListener() {
+        g1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(g3ImageView, g3Selected);
-                g3Selected = !g3Selected;
+                toggleSpot(g1ImageView, g1Selected);
+                g1Selected = !g1Selected;
             }
         });
 
-        g4ImageView.setOnClickListener(new View.OnClickListener() {
+        g2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(g4ImageView, g4Selected);
-                g4Selected = !g4Selected;
+                toggleSpot(g2ImageView, g2Selected);
+                g2Selected = !g2Selected;
             }
         });
 
@@ -232,79 +227,62 @@ public class Main_ParkSpot extends AppCompatActivity {
                 j4Selected = !j4Selected;
             }
         });
-
-        k5ImageView.setOnClickListener(new View.OnClickListener() {
+        k3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(k5ImageView, k5Selected);
-                k5Selected = !k5Selected;
+                toggleSpot(k3ImageView, k3Selected);
+                k3Selected = !k3Selected;
             }
         });
-        k6ImageView.setOnClickListener(new View.OnClickListener() {
+        k4ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(k6ImageView, k6Selected);
-                k6Selected = !k6Selected;
-            }
-        });
-
-        l5ImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleSpot(l5ImageView, l5Selected);
-                l5Selected = !l5Selected;
-            }
-        });
-        l6ImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleSpot(l6ImageView, l6Selected);
-                l6Selected = !l6Selected;
+                toggleSpot(k4ImageView, k4Selected);
+                k4Selected = !k4Selected;
             }
         });
 
-        m5ImageView.setOnClickListener(new View.OnClickListener() {
+        l3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(m5ImageView, m5Selected);
-                m5Selected = !m5Selected;
+                toggleSpot(l3ImageView, l3Selected);
+                l3Selected = !l3Selected;
             }
         });
-        m6ImageView.setOnClickListener(new View.OnClickListener() {
+        l4ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(m6ImageView, m6Selected);
-                m6Selected = !m6Selected;
-            }
-        });
-
-        n5ImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleSpot(n5ImageView, n5Selected);
-                n5Selected = !n5Selected;
-            }
-        });
-        n6ImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleSpot(n6ImageView, n6Selected);
-                n6Selected = !n6Selected;
+                toggleSpot(l4ImageView, l4Selected);
+                l4Selected = !l4Selected;
             }
         });
 
-        o5ImageView.setOnClickListener(new View.OnClickListener() {
+        m3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(o5ImageView, o5Selected);
-                o5Selected = !o5Selected;
+                toggleSpot(m3ImageView, m3Selected);
+                m3Selected = !m3Selected;
             }
         });
-        o6ImageView.setOnClickListener(new View.OnClickListener() {
+        m4ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(o6ImageView, o6Selected);
-                o6Selected = !o6Selected;
+                toggleSpot(m4ImageView, m4Selected);
+                m4Selected = !m4Selected;
+            }
+        });
+        n3ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleSpot(n3ImageView, n3Selected);
+                n3Selected = !n3Selected;
+            }
+        });
+        n4ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleSpot(n4ImageView, n4Selected);
+                n4Selected = !n4Selected;
             }
         });
     }
@@ -315,9 +293,9 @@ public class Main_ParkSpot extends AppCompatActivity {
 
         // Determine the image resource and spotName based on the parking spot's availability
         if (imageView.getId() == R.id.A2 || imageView.getId() == R.id.B2 || imageView.getId() == R.id.C2 || imageView.getId() == R.id.D2
-                || imageView.getId() == R.id.E2 || imageView.getId() == R.id.F4 || imageView.getId() == R.id.G4 || imageView.getId() == R.id.H4
-                || imageView.getId() == R.id.I4 || imageView.getId() == R.id.J4 || imageView.getId() == R.id.K6 || imageView.getId() == R.id.L6
-                || imageView.getId() == R.id.M6 || imageView.getId() == R.id.N6 || imageView.getId() == R.id.O6) {
+                || imageView.getId() == R.id.E2 || imageView.getId() == R.id.F2 || imageView.getId() == R.id.G2 || imageView.getId() == R.id.H4
+                || imageView.getId() == R.id.I4 || imageView.getId() == R.id.J4 || imageView.getId() == R.id.K4
+                || imageView.getId() == R.id.L4 || imageView.getId() == R.id.M4 || imageView.getId() == R.id.N4) {
             if (isSelected) {
                 // Spot is taken
                 spotImageResource = R.drawable.selectedcarspot2;
@@ -373,14 +351,14 @@ public class Main_ParkSpot extends AppCompatActivity {
             spotName = "E1";
         } else if (viewId == R.id.E2) {
             spotName = "E2";
-        } else if (viewId == R.id.F3) {
-            spotName = "F3";
-        } else if (viewId == R.id.F4) {
-            spotName = "F4";
-        } else if (viewId == R.id.G3) {
-            spotName = "G3";
-        } else if (viewId == R.id.G4) {
-            spotName = "G4";
+        } else if (viewId == R.id.F1) {
+            spotName = "F1";
+        } else if (viewId == R.id.F2) {
+            spotName = "F2";
+        } else if (viewId == R.id.G1) {
+            spotName = "G1";
+        } else if (viewId == R.id.G2) {
+            spotName = "G2";
         } else if (viewId == R.id.H3) {
             spotName = "H3";
         } else if (viewId == R.id.H4) {
@@ -393,52 +371,48 @@ public class Main_ParkSpot extends AppCompatActivity {
             spotName = "J3";
         } else if (viewId == R.id.J4) {
             spotName = "J4";
-        } else if (viewId == R.id.K5) {
-            spotName = "K5";
-        } else if (viewId == R.id.K6) {
-            spotName = "K6";
-        } else if (viewId == R.id.L5) {
-            spotName = "L5";
-        } else if (viewId == R.id.L6) {
-            spotName = "L6";
-        } else if (viewId == R.id.M5) {
-            spotName = "M5";
-        } else if (viewId == R.id.M6) {
-            spotName = "M6";
-        } else if (viewId == R.id.N5) {
-            spotName = "N5";
-        } else if (viewId == R.id.N6) {
-            spotName = "N6";
-        } else if (viewId == R.id.O5) {
-            spotName = "O5";
-        } else if (viewId == R.id.O6) {
-            spotName = "O6";
+        } else if (viewId == R.id.K3) {
+            spotName = "K3";
+        } else if (viewId == R.id.K4) {
+            spotName = "K4";
+        } else if (viewId == R.id.L3) {
+            spotName = "L3";
+        } else if (viewId == R.id.L4) {
+            spotName = "L4";
+        } else if (viewId == R.id.M3) {
+            spotName = "M3";
+        } else if (viewId == R.id.M4) {
+            spotName = "M4";
+        } else if (viewId == R.id.N3) {
+            spotName = "N3";
+        } else if (viewId == R.id.N4) {
+            spotName = "N4";
         }
 
         return spotName;
     }
 
     public void onProfileButtonClick(View view) {
-        Intent intent = new Intent(Main_ParkSpot.this, Profile.class);
+        Intent intent = new Intent(RTL_ParkSpot.this, Profile.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void navigateToGLEMap(View view) {
-        Intent intent = new Intent(Main_ParkSpot.this, GLE_Parking_Map.class);
+    public void navigateToRTLMap(View view) {
+        Intent intent = new Intent(RTL_ParkSpot.this, RTL_ParkingMap.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void navigateToHome(View view) {
-        Intent intent = new Intent(Main_ParkSpot.this, Home.class);
+        Intent intent = new Intent(RTL_ParkSpot.this, Home.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void navigateToVehicleTimer1(View view) {
         // Create an Intent to go to the Car_Vehicle_Limit page
-        Intent intent = new Intent(Main_ParkSpot.this, Car_Vehicle_Limit.class);
+        Intent intent = new Intent(RTL_ParkSpot.this, Car_Vehicle_Limit.class);
 
         // Get the selected parking spot text (without the "Parking Spot Taken" prefix)
         TextView parkspottext = findViewById(R.id.parkspottext);
@@ -448,7 +422,7 @@ public class Main_ParkSpot extends AppCompatActivity {
 
         // Add the selected parking spot text as an extra to the intent
         intent.putExtra("selectedSpotText", selectedSpotText);
-        intent.putExtra("fromMainParkSpot", true);
+        intent.putExtra("fromRTLParkSpot", true);
 
         // Start the Car_Vehicle_Limit page
         startActivity(intent);

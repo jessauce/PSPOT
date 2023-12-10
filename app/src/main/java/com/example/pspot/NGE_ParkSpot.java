@@ -488,7 +488,7 @@ public class NGE_ParkSpot extends AppCompatActivity {
     }
 
     public void navigateToNGEMap(View view) {
-        Intent intent = new Intent(NGE_ParkSpot.this, GLE_Parking_Map.class);
+        Intent intent = new Intent(NGE_ParkSpot.this, NGE_Parking_Map.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }

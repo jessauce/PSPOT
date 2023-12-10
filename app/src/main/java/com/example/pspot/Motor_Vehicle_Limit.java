@@ -120,6 +120,12 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+    public void navigateToMotorParked(View view) {
+        Intent intent = new Intent(Motor_Vehicle_Limit.this, Motor_Vehicle_Parked.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
     public void navigateToCreditCard(View view) {
 
         showCreditCardDialog();
@@ -139,6 +145,7 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+
     }
 
     public void navigateToGcash(View view) {

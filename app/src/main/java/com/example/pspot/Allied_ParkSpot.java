@@ -513,7 +513,7 @@ public class Allied_ParkSpot extends AppCompatActivity {
         intent.putExtra("selectedSpotText", selectedSpotText);
 
         // Add information indicating that the user is coming from NGE_ParkSpot
-        intent.putExtra("fromNGEParkSpot", true);
+        intent.putExtra("fromAlliedParkSpot", true);
 
         // Start the Car_Vehicle_Limit page
         startActivity(intent);

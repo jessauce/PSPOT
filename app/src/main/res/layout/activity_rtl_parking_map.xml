@@ -4,78 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/car_parkedbg"
-    tools:context=".Car_Vehicle_Parked">
+    android:background="@drawable/parkmap_bg"
+    tools:context=".RTL_ParkingMap">
 
-    <TextView
-        android:id="@+id/PlateNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="455dp"
-        android:text="PLATE NUMBER"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Parkingtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="585dp"
-        android:layout_marginEnd="341dp"
-        android:text="GLE"
-        android:textColor="#a6a6a6"
-        android:textSize="35sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/backtoHomebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="403dp"
+        android:onClick="navigateToHome"
+        android:src="@drawable/black_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/Plottext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="334dp"
-        android:layout_marginTop="585dp"
-        android:layout_marginEnd="102dp"
-        android:text="A1"
-        android:textColor="#a6a6a6"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="235dp"
-        android:text="00 : 00 : 00"
-        android:textColor="#a6a6a6"
-        android:textSize="50sp"
-        android:textStyle="bold"
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="330dp"
+        android:layout_height="545dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginBottom="230dp"
+        android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
     <Button
-        android:id="@+id/btnProceedpayment"
+        android:id="@+id/btnConfirm"
         android:layout_width="340dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="#FDDF67"
-        android:text="STOP"
+        android:text="Confirm Location"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -101,10 +72,9 @@
 
             <ImageView
                 android:id="@+id/homeButtonImage"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/home_icon2" />
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/home_icon" />
 
         </LinearLayout>
 
@@ -121,7 +91,7 @@
                 android:id="@+id/ticketsButtonImage"
                 android:layout_width="65dp"
                 android:layout_height="74dp"
-                android:src="@drawable/pinfo_icon" />
+                android:src="@drawable/parkinginfo_icon" />
 
         </LinearLayout>
 
@@ -143,6 +113,7 @@
                 android:src="@drawable/profile_icon" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

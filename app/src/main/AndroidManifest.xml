@@ -25,6 +25,15 @@
         android:theme="@style/Theme.PSPOT"
         tools:targetApi="31">
         <activity
+            android:name=".RTL_ParkSpot"
+            android:exported="false" />
+        <activity
+            android:name=".RTL_ParkingMap"
+            android:exported="false" />
+        <activity
+            android:name=".Motor_Vehicle_Parked"
+            android:exported="false" />
+        <activity
             android:name=".Motor_Vehicle_Limit"
             android:exported="false" />
         <activity

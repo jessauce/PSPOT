@@ -43,13 +43,21 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
 
         // Check if the user is coming from NGE_ParkSpot
         boolean fromNGEParkSpot = getIntent().getBooleanExtra("fromNGEParkSpot", false);
-
+        boolean fromMainParkSpot = getIntent().getBooleanExtra("fromMainParkSpot", false);
+        boolean fromRTLParkSpot = getIntent().getBooleanExtra("fromRTLParkSpot", false);
+        boolean fromAlliedParkSpot = getIntent().getBooleanExtra("fromAlliedParkSpot", false);
         parkingtext = findViewById(R.id.Parkingtext);
 
 
         // Update Parkingtext based on whether the user is coming from NGE_ParkSpot
         if (fromNGEParkSpot) {
             parkingtext.setText("NGE");
+        } else if (fromMainParkSpot) {
+            parkingtext.setText("MAIN");
+        } else if (fromRTLParkSpot) {
+            parkingtext.setText("RTL");
+        } else if (fromAlliedParkSpot) {
+            parkingtext.setText("Allied");
         } else {
             // Set the default text or handle accordingly
             parkingtext.setText("GLE");
