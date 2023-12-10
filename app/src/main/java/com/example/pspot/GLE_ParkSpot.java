@@ -9,7 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.DocumentReference;
+
+import android.widget.Toast;
+import android.os.Handler;
+
+
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.firestore.Transaction;
 public class GLE_ParkSpot extends AppCompatActivity {
+
 
     private boolean a1Selected = false;
     private boolean a2Selected = false;
@@ -53,6 +67,10 @@ public class GLE_ParkSpot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gle_park_spot);
 
+
+        // Initialize Firebase
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 // Find the parking spot ImageView elements
         ImageView a1ImageView = findViewById(R.id.A1);
         ImageView a2ImageView = findViewById(R.id.A2);
@@ -71,167 +89,513 @@ public class GLE_ParkSpot extends AppCompatActivity {
         ImageView h1ImageView = findViewById(R.id.H1);
         ImageView h2ImageView = findViewById(R.id.H2);
 
+
+
+        // Reference to the "parkingSpots" collection and "GLE" document
+        DocumentReference parkingSpotRef = db.collection("parkingSpots").document("GLE");
+
+        // Add a listener to the document to listen for changes
+        parkingSpotRef.addSnapshotListener(this, (documentSnapshot, e) -> {
+            if (e != null) {
+                // Handle errors here
+                Toast.makeText(GLE_ParkSpot.this, "Error fetching updates", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (documentSnapshot != null && documentSnapshot.exists()) {
+                // DocumentSnapshot contains the data of the "GLE" document
+                // Now, you can retrieve the values of the parking spots and update your UI
+
+                // Example: Update UI for A1 based on its availability
+                updateSpotUI(a1ImageView, documentSnapshot.getString("A1"));
+
+                // Repeat the above steps for other parking spots
+                updateSpotUI(a2ImageView, documentSnapshot.getString("A2"));
+                updateSpotUI(b1ImageView, documentSnapshot.getString("B1"));
+                updateSpotUI(b2ImageView, documentSnapshot.getString("B2"));
+                updateSpotUI(c1ImageView, documentSnapshot.getString("C1"));
+                updateSpotUI(c2ImageView, documentSnapshot.getString("C2"));
+                updateSpotUI(d1ImageView, documentSnapshot.getString("D1"));
+                updateSpotUI(d2ImageView, documentSnapshot.getString("D2"));
+                updateSpotUI(e1ImageView, documentSnapshot.getString("E1"));
+                updateSpotUI(e2ImageView, documentSnapshot.getString("E2"));
+                updateSpotUI(f1ImageView, documentSnapshot.getString("F1"));
+                updateSpotUI(f2ImageView, documentSnapshot.getString("F2"));
+                updateSpotUI(g1ImageView, documentSnapshot.getString("G1"));
+                updateSpotUI(g2ImageView, documentSnapshot.getString("G2"));
+                updateSpotUI(h1ImageView, documentSnapshot.getString("H1"));
+                updateSpotUI(h2ImageView, documentSnapshot.getString("H2"));
+            } else {
+                // Handle the case where the document does not exist
+                // You might want to show a message to the user or take appropriate action
+                TextView parkspottext = findViewById(R.id.parkspottext);
+                parkspottext.setText("Parking spot information not available");
+                // You can also display a toast message or any other UI update
+            }
+        });
+
+
+
+
+
         // Set click listeners for the parking spot ImageView elements
         a1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(a1ImageView, a1Selected);
-                a1Selected = !a1Selected;
+                if (isSpotAvailable(a1ImageView)) { // Check if spot is available
+                    if (a1Selected) {
+                        unselectSpot(a1ImageView, a1Selected);
+                        a1Selected = !a1Selected;
+                    } else {
+                        toggleAvailableSpot(a1ImageView, a1Selected);
+                        a1Selected = !a1Selected;
+                    }
+                }
             }
         });
 
         a2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(a2ImageView, a2Selected);
-                a2Selected = !a2Selected;
+                if (isSpotAvailable(a2ImageView)) { // Check if spot is available
+                    if (a2Selected) {
+                        unselectSpot(a2ImageView, a2Selected);
+                        a2Selected = !a2Selected;
+                    } else {
+                        toggleAvailableSpot(a2ImageView, a2Selected);
+                        a2Selected = !a2Selected;
+                    }
+                }
             }
         });
 
         b1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(b1ImageView, b1Selected);
-                b1Selected = !b1Selected;
+                if (isSpotAvailable(b1ImageView)) { // Check if spot is available
+                    if (b1Selected) {
+                        unselectSpot(b1ImageView, b1Selected);
+                        b1Selected = !b1Selected;
+                    } else {
+                        toggleAvailableSpot(b1ImageView, b1Selected);
+                        b1Selected = !b1Selected;
+                    }
+                }
             }
         });
 
+
         b2ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                toggleSpot(b2ImageView, b2Selected);
-                b2Selected = !b2Selected;
+                if (isSpotAvailable(b2ImageView)) { // Check if spot is available
+                    if (b2Selected) {
+                        unselectSpot(b2ImageView, b2Selected);
+                        b2Selected = !b2Selected;
+                    } else {
+                        toggleAvailableSpot(b2ImageView, b2Selected);
+                        b2Selected = !b2Selected;
+                    }
+                }
             }
         });
+
         c1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(c1ImageView, c1Selected);
-                c1Selected = !c1Selected;
+                if (isSpotAvailable(c1ImageView)) { // Check if spot is available
+                    if (c1Selected) {
+                        unselectSpot(c1ImageView, c1Selected);
+                        c1Selected = !c1Selected;
+                    } else {
+                        toggleAvailableSpot(c1ImageView, c1Selected);
+                        c1Selected = !c1Selected;
+                    }
+                }
             }
         });
 
         c2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(c2ImageView, c2Selected);
-                c2Selected = !c2Selected;
+                if (isSpotAvailable(c2ImageView)) { // Check if spot is available
+                    if (c2Selected) {
+                        unselectSpot(c2ImageView, c2Selected);
+                        c2Selected = !c2Selected;
+                    } else {
+                        toggleAvailableSpot(c2ImageView, c2Selected);
+                        c2Selected = !c2Selected;
+                    }
+                }
             }
         });
+
 
         d1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(d1ImageView, d1Selected);
-                d1Selected = !d1Selected;
+                if (isSpotAvailable(d1ImageView)) { // Check if spot is available
+                    if (d1Selected) {
+                        unselectSpot(d1ImageView, d1Selected);
+                        d1Selected = !d1Selected;
+                    } else {
+                        toggleAvailableSpot(d1ImageView, d1Selected);
+                        d1Selected = !d1Selected;
+                    }
+                }
             }
         });
 
         d2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(d2ImageView, d2Selected);
-                d2Selected = !d2Selected;
+                if (isSpotAvailable(d2ImageView)) { // Check if spot is available
+                    if (d2Selected) {
+                        unselectSpot(d2ImageView, d2Selected);
+                        d2Selected = !d2Selected;
+                    } else {
+                        toggleAvailableSpot(d2ImageView, d2Selected);
+                        d2Selected = !d2Selected;
+                    }
+                }
             }
         });
 
         e1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(e1ImageView, e1Selected);
-                e1Selected = !e1Selected;
+                if (isSpotAvailable(e1ImageView)) { // Check if spot is available
+                    if (e1Selected) {
+                        unselectSpot(e1ImageView, e1Selected);
+                        e1Selected = !e1Selected;
+                    } else {
+                        toggleAvailableSpot(e1ImageView, e1Selected);
+                        e1Selected = !e1Selected;
+                    }
+                }
             }
         });
 
         e2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(e2ImageView, e2Selected);
-                e2Selected = !e2Selected;
+                if (isSpotAvailable(e2ImageView)) { // Check if spot is available
+                    if (e2Selected) {
+                        unselectSpot(e2ImageView, e2Selected);
+                        e2Selected = !e2Selected;
+                    } else {
+                        toggleAvailableSpot(e2ImageView, e2Selected);
+                        e2Selected = !e2Selected;
+                    }
+                }
             }
         });
+
+// Repeat the above code for other spots...
+
+// Example for f1ImageView and f2ImageView:
 
         f1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(f1ImageView, f1Selected);
-                f1Selected = !f1Selected;
+                if (isSpotAvailable(f1ImageView)) { // Check if spot is available
+                    if (f1Selected) {
+                        unselectSpot(f1ImageView, f1Selected);
+                        f1Selected = !f1Selected;
+                    } else {
+                        toggleAvailableSpot(f1ImageView, f1Selected);
+                        f1Selected = !f1Selected;
+                    }
+                }
             }
         });
 
         f2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(f2ImageView, f2Selected);
-                f2Selected = !f2Selected;
+                if (isSpotAvailable(f2ImageView)) { // Check if spot is available
+                    if (f2Selected) {
+                        unselectSpot(f2ImageView, f2Selected);
+                        f2Selected = !f2Selected;
+                    } else {
+                        toggleAvailableSpot(f2ImageView, f2Selected);
+                        f2Selected = !f2Selected;
+                    }
+                }
             }
         });
+
+// Repeat the pattern for the remaining spots...
+
+// Example for g1ImageView and g2ImageView:
 
         g1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(g1ImageView, g1Selected);
-                g1Selected = !g1Selected;
+                if (isSpotAvailable(g1ImageView)) { // Check if spot is available
+                    if (g1Selected) {
+                        unselectSpot(g1ImageView, g1Selected);
+                        g1Selected = !g1Selected;
+                    } else {
+                        toggleAvailableSpot(g1ImageView, g1Selected);
+                        g1Selected = !g1Selected;
+                    }
+                }
             }
         });
 
         g2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(g2ImageView, g2Selected);
-                g2Selected = !g2Selected;
+                if (isSpotAvailable(g2ImageView)) { // Check if spot is available
+                    if (g2Selected) {
+                        unselectSpot(g2ImageView, g2Selected);
+                        g2Selected = !g2Selected;
+                    } else {
+                        toggleAvailableSpot(g2ImageView, g2Selected);
+                        g2Selected = !g2Selected;
+                    }
+                }
             }
         });
+
+// Repeat the pattern for the remaining spots...
+
+// Example for h1ImageView and h2ImageView:
 
         h1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(h1ImageView, h1Selected);
-                h1Selected = !h1Selected;
+                if (isSpotAvailable(h1ImageView)) { // Check if spot is available
+                    if (h1Selected) {
+                        unselectSpot(h1ImageView, h1Selected);
+                        h1Selected = !h1Selected;
+                    } else {
+                        toggleAvailableSpot(h1ImageView, h1Selected);
+                        h1Selected = !h1Selected;
+                    }
+                }
             }
         });
+
         h2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSpot(h2ImageView, h2Selected);
-                h2Selected = !h2Selected;
+                if (isSpotAvailable(h2ImageView)) { // Check if spot is available
+                    if (h2Selected) {
+                        unselectSpot(h2ImageView, h2Selected);
+                        h2Selected = !h2Selected;
+                    } else {
+                        toggleAvailableSpot(h2ImageView, h2Selected);
+                        h2Selected = !h2Selected;
+                    }
+                }
             }
         });
+
     }
-    private void toggleSpot(ImageView imageView, boolean isSelected) {
-        String spotName = "";
+
+
+
+    /// Modify your existing updateSpotUI method to handle unavailable spots
+    private void updateSpotUI(ImageView spotImageView, String spotValue) {
+        boolean isSpotAvailable = spotValue.equals("0");
         int spotImageResource;
 
-        // Determine the image resource and spotName based on the parking spot's availability
-        if (imageView.getId() == R.id.A2 || imageView.getId() == R.id.B2 || imageView.getId() == R.id.C2 || imageView.getId() == R.id.D2
-                || imageView.getId() == R.id.E2 || imageView.getId() == R.id.F2 || imageView.getId() == R.id.G2 || imageView.getId() == R.id.H2) {
-            if (isSelected) {
-                // Spot is taken
-                spotImageResource = R.drawable.selectedcarspot2;
-                spotName = getSpotName(imageView);
-            } else {
-                // Spot is available
+        if (isSpotAvailable) {
+            // Spot is available, use the available icon/button
+            if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
+                    spotImageView.getId() == R.id.C2 || spotImageView.getId() == R.id.D2 ||
+                    spotImageView.getId() == R.id.E2 || spotImageView.getId() == R.id.F2 ||
+                    spotImageView.getId() == R.id.G2 || spotImageView.getId() == R.id.H2) {
                 spotImageResource = R.drawable.availablecarspot2;
-                spotName = "-";
+            } else {
+                spotImageResource = R.drawable.availablecarspot;
             }
         } else {
-            if (isSelected) {
-                // Spot is taken
-                spotImageResource = R.drawable.selectedcarspot;
-                spotName = getSpotName(imageView);
+            // Spot is unavailable, use the unavailable icon/button
+            if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
+                    spotImageView.getId() == R.id.C2 || spotImageView.getId() == R.id.D2 ||
+                    spotImageView.getId() == R.id.E2 || spotImageView.getId() == R.id.F2 ||
+                    spotImageView.getId() == R.id.G2 || spotImageView.getId() == R.id.H2) {
+                spotImageResource = R.drawable.unavailablecarspot2;
             } else {
-                // Spot is available
-                spotImageResource = R.drawable.availablecarspot;
-                spotName = "-";
+                spotImageResource = R.drawable.unavailablecarspot;
             }
         }
 
         // Set the image resource for the parking spot ImageView
-        imageView.setImageResource(spotImageResource);
+        spotImageView.setImageResource(spotImageResource);
 
         // Update the parkspottext TextView
         TextView parkspottext = findViewById(R.id.parkspottext);
-        parkspottext.setText("Parking Spot Taken: " + spotName);
+        // Update the text based on the availability
+        parkspottext.setText("Parking Spot Taken: " + (isSpotAvailable ? "Available" : "Unavailable"));
     }
+
+
+
+
+    // Add this new method to update the UI specifically for available spots
+    private void updateAvailableSpotUI(ImageView spotImageView, boolean isSelected) {
+        int spotImageResource;
+
+        if (isSelected) {
+            // Spot is selected, use the selected icon/button
+            if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
+                    spotImageView.getId() == R.id.C2 || spotImageView.getId() == R.id.D2 ||
+                    spotImageView.getId() == R.id.E2 || spotImageView.getId() == R.id.F2 ||
+                    spotImageView.getId() == R.id.G2 || spotImageView.getId() == R.id.H2) {
+                spotImageResource = R.drawable.selectedcarspot2;
+            } else {
+                spotImageResource = R.drawable.selectedcarspot;
+            }
+        } else {
+            // Spot is available, use the available icon/button
+            if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
+                    spotImageView.getId() == R.id.C2 || spotImageView.getId() == R.id.D2 ||
+                    spotImageView.getId() == R.id.E2 || spotImageView.getId() == R.id.F2 ||
+                    spotImageView.getId() == R.id.G2 || spotImageView.getId() == R.id.H2) {
+                spotImageResource = R.drawable.availablecarspot2;
+            } else {
+                spotImageResource = R.drawable.availablecarspot;
+            }
+        }
+
+        // Set the image resource for the parking spot ImageView
+        spotImageView.setImageResource(spotImageResource);
+
+        // Update the parkspottext TextView
+        TextView parkspottext = findViewById(R.id.parkspottext);
+        // Update the text based on the availability
+        parkspottext.setText("Parking Spot Taken: " + (isSelected ? "Selected" : "Available"));
+    }
+
+
+
+
+
+
+    private String currentlySelectedSpotId = "";
+
+
+    // Inside toggleSpot method
+    private void toggleAvailableSpot(ImageView imageView, boolean isSelected) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String spotName = getSpotName(imageView);
+        DocumentReference spotRef = db.collection("parkingSpots").document("GLE");
+
+        // Check if the spot is available before allowing selection
+        if (!isSelected && !isSpotAvailable(imageView)) {
+            // Spot is not available, show a message or handle it accordingly
+            Toast.makeText(GLE_ParkSpot.this, "This parking spot is not available.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // If a spot is currently selected, unselect it
+        if (!currentlySelectedSpotId.isEmpty()) {
+            // Get the previously selected spot's ImageView
+            ImageView previousSelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
+            unselectSpot(previousSelectedSpot, true);
+        }
+
+        // Update the value based on the current selection state
+        String updatedValue = isSelected ? "0" : "1";
+
+        // Update the selected spot to the new value with a very short delay
+        spotRef.update(spotName, updatedValue)
+                .addOnSuccessListener(aVoid -> {
+                    // Update UI for the selected/unselected spot with a very short delay
+                    Handler handler = new Handler();
+                    handler.postDelayed(() -> {
+                        runOnUiThread(() -> {
+                            if (isSelected) {
+                                unselectSpot(imageView, true);
+                            } else {
+                                updateAvailableSpotUI(imageView, true);
+                                currentlySelectedSpotId = getResources().getResourceEntryName(imageView.getId());
+                            }
+                        });
+                    }, 100); // Adjust the delay duration as needed
+                })
+                .addOnFailureListener(e -> {
+                    // Handle the failure to update the spot value
+                    // You may show a toast message or log the error
+                    Toast.makeText(GLE_ParkSpot.this, "Failed to update parking spot information", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+
+
+
+
+
+
+
+    // Inside isSpotAvailable method
+    private boolean isSpotAvailable(ImageView imageView) {
+        // Logic to check if the spot is available based on the ImageView
+        // You may want to compare the ImageView's ID and determine the availability
+        // Example logic:
+        int viewId = imageView.getId();
+        if (viewId == R.id.A1 || viewId == R.id.B1 || viewId == R.id.C1 ||
+                viewId == R.id.D1 || viewId == R.id.E1 || viewId == R.id.F1 ||
+                viewId == R.id.G1 || viewId == R.id.H1) {
+            return imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.availablecarspot).getConstantState());
+        } else if (viewId == R.id.A2 || viewId == R.id.B2 || viewId == R.id.C2 ||
+                viewId == R.id.D2 || viewId == R.id.E2 || viewId == R.id.F2 ||
+                viewId == R.id.G2 || viewId == R.id.H2) {
+            return imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.availablecarspot2).getConstantState());
+        }
+        // Add conditions for other spots as needed
+        return false; // Default to false if the spot is not found
+    }
+
+
+
+
+    private void unselectSpot(ImageView spotImageView, boolean isSelected) {
+        // Get the spot name based on the ImageView's ID
+        String spotName = getSpotName(spotImageView);
+
+        // Update the value to 0 (available)
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference spotRef = db.collection("parkingSpots").document("GLE");
+
+        spotRef.update(spotName, "0")
+                .addOnSuccessListener(aVoid -> {
+                    // Update UI for available spot
+                    updateSpotUI(spotImageView, "0");
+                })
+                .addOnFailureListener(e -> {
+                    // Handle the failure to update the spot value
+                    // You may show a toast message or log the error
+                    Toast.makeText(GLE_ParkSpot.this, "Failed to update parking spot information", Toast.LENGTH_SHORT).show();
+                });
+
+        // Update the spot icon to availablecarspot
+        int spotImageResource = isSelected ? R.drawable.selectedcarspot : R.drawable.availablecarspot;
+
+        // For spots like A2, B2, C2, etc., use different icons
+        if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
+                spotImageView.getId() == R.id.C2 || spotImageView.getId() == R.id.D2 ||
+                spotImageView.getId() == R.id.E2 || spotImageView.getId() == R.id.F2 ||
+                spotImageView.getId() == R.id.G2 || spotImageView.getId() == R.id.H2) {
+            spotImageResource = isSelected ? R.drawable.selectedcarspot2 : R.drawable.availablecarspot2;
+        }
+
+        // Set the image resource for the parking spot ImageView
+        spotImageView.setImageResource(spotImageResource);
+
+        // Handle any additional UI changes if needed
+        // ...
+
+        // Update the parkspottext TextView
+        TextView parkspottext = findViewById(R.id.parkspottext);
+        parkspottext.setText("Parking Spot Taken: Available");
+    }
+
+
 
 
     // Helper method to get the parking spot name based on the ImageView's ID
