@@ -32,14 +32,23 @@ public class Gcash extends AppCompatActivity {
 
         selectedDate = getIntent().getStringExtra("selectedDate");
 
-        int totalPrice = getIntent().getIntExtra("totalPrice", 0);
+        //int totalPrice = getIntent().getIntExtra("Price", 0);
 
         Button proceedButton = findViewById(R.id.btnProceedpayment);
         proceedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String totalPrice = getIntent().getStringExtra("totalPrice");
+                String parkspot = getIntent().getStringExtra("parkspot");
+                String plot = getIntent().getStringExtra("plot");
+
+                // Pass the numeric part to the Gcash2 activity
                 Intent intent = new Intent(Gcash.this, Gcash2.class);
                 intent.putExtra("totalPrice", totalPrice);
+                intent.putExtra("parkspot", parkspot);
+                intent.putExtra("plot", plot);
+
+                intent.putExtra("ParkingText", getIntent().getStringExtra("ParkingText"));
                 startActivity(intent);
             }
         });

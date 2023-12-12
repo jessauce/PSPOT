@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class Motor_Vehicle_Parked extends AppCompatActivity {
 
@@ -12,6 +13,13 @@ public class Motor_Vehicle_Parked extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motor_vehicle_parked);
+
+        Intent intent = getIntent();
+
+        String plot = getIntent().getStringExtra("plot");
+
+        TextView plotview = findViewById(R.id.Plottext);
+        plotview.setText(plot);
     }
 
     public void onProfileButtonClick(View view) {

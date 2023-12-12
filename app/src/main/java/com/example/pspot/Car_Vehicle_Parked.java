@@ -28,9 +28,17 @@ public class Car_Vehicle_Parked extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_vehicle_parked);
 
-
         Intent intent = getIntent();
-        String parkingText = intent.getStringExtra("ParkingText");
+
+        String parkspot = getIntent().getStringExtra("parkspot");
+        String plot = getIntent().getStringExtra("plot");
+
+        // Parse the price as a string, including the "₱ " prefix
+        TextView parkspotview = findViewById(R.id.Parkingtext);
+        parkspotview.setText(parkspot);
+
+        TextView plotview = findViewById(R.id.Plottext);
+        plotview.setText(plot);
     }
 
     public void onProfileButtonClick(View view) {

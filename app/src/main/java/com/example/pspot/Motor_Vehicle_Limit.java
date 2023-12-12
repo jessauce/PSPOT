@@ -20,6 +20,8 @@ import android.widget.TimePicker;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import java.util.Calendar;
+
 public class Motor_Vehicle_Limit extends AppCompatActivity {
 
     private boolean isProgressShowing = false;
@@ -72,6 +74,8 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
         plottext.setText(selectedSpotText);
     }
 
+
+
     public void showDialog() {
         paymentDialog = new Dialog(this);
         paymentDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -109,9 +113,38 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
         timePickerDialog.show();
     }
 
+    private void updatePrice() {
+        // Create Calendar instances for start and end times
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, startHour);
+        startTime.set(Calendar.MINUTE, startMinute);
+
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(Calendar.HOUR_OF_DAY, endHour);
+        endTime.set(Calendar.MINUTE, endMinute);
+
+        // Calculate the difference in milliseconds between start and end times
+        long durationMillis = endTime.getTimeInMillis() - startTime.getTimeInMillis();
+
+        // Calculate the duration in hours
+        int durationHours = (int) (durationMillis / (60 * 60 * 1000));
+
+        // Calculate the price (Php 10 per hour)
+        int price = durationHours * 10;
+
+        // Update the Pricetext TextView with the calculated price
+        TextView pricetext = findViewById(R.id.Pricetext);
+        pricetext.setText("₱ " + price);
+    }
+
+
+
     private void updateTimeButtonText(Button button, int hour, int minute) {
         String time = String.format("%02d:%02d ▼", hour, minute);
         button.setText(time);
+
+        // Call updatePrice when either start or end time is changed
+        updatePrice();
     }
 
     public void navigateToBack(View view) {
@@ -121,7 +154,11 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
     }
 
     public void navigateToMotorParked(View view) {
+        TextView PlotTextView = findViewById(R.id.Plottext);
+        String plotString = PlotTextView.getText().toString();
+
         Intent intent = new Intent(Motor_Vehicle_Limit.this, Motor_Vehicle_Parked.class);
+        intent.putExtra("plot", plotString);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
@@ -170,8 +207,13 @@ public class Motor_Vehicle_Limit extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Handle the click event to navigate to the Gcash page
+
+                        TextView PlotTextView = findViewById(R.id.Plottext);
+                        String plotString = PlotTextView.getText().toString();
+
                         Intent intent = new Intent(Motor_Vehicle_Limit.this, Gcash.class);
                         intent.putExtra("ParkingText", parkingtext.getText().toString());
+                        intent.putExtra("plot", plotString);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     }
