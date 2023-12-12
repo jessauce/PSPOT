@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,6 +18,7 @@ import com.google.firebase.firestore.DocumentReference;
 
 import android.widget.Toast;
 import android.os.Handler;
+import android.util.Log;
 
 
 import com.google.android.gms.tasks.Task;
@@ -25,6 +27,7 @@ import com.google.firebase.firestore.Transaction;
 public class GLE_ParkSpot extends AppCompatActivity {
 
 
+    private int totalPrice = 0;
     private boolean a1Selected = false;
     private boolean a2Selected = false;
     private boolean b1Selected = false;
@@ -61,6 +64,13 @@ public class GLE_ParkSpot extends AppCompatActivity {
     private boolean q2Selected = false;
     private boolean r1Selected = false;
     private boolean r2Selected = false;
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -392,12 +402,32 @@ public class GLE_ParkSpot extends AppCompatActivity {
                 }
             }
         });
-
     }
 
 
 
-    /// Modify your existing updateSpotUI method to handle unavailable spots
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("GLE_ParkSpot", "onPause");
+
+        // Check if a spot is currently selected
+        if (!currentlySelectedSpotId.isEmpty()) {
+            // Get the ImageView of the currently selected spot
+            ImageView currentlySelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
+
+            // Unselect the spot and update the database
+            unselectSpot(currentlySelectedSpot, true);
+            currentlySelectedSpotId = "";  // Reset the currentlySelectedSpotId
+        }
+    }
+
+
+
+
+    // Modify your existing updateSpotUI method to handle unavailable spots
     private void updateSpotUI(ImageView spotImageView, String spotValue) {
         boolean isSpotAvailable = spotValue.equals("0");
         int spotImageResource;
@@ -428,17 +458,20 @@ public class GLE_ParkSpot extends AppCompatActivity {
         spotImageView.setImageResource(spotImageResource);
 
         // Update the parkspottext TextView
-        TextView parkspottext = findViewById(R.id.parkspottext);
-        // Update the text based on the availability
-        parkspottext.setText("Parking Spot Taken: " + (isSpotAvailable ? "Available" : "Unavailable"));
+        //TextView parkspottext = findViewById(R.id.parkspottext);
+        // Update the text based on the spot name
+        //parkspottext.setText("Parking Spot Taken: " + getSpotName(spotImageView));
     }
 
 
 
 
-    // Add this new method to update the UI specifically for available spots
+
     private void updateAvailableSpotUI(ImageView spotImageView, boolean isSelected) {
         int spotImageResource;
+
+        // Get the spot name based on the ImageView's ID
+        String spotName = getSpotName(spotImageView);
 
         if (isSelected) {
             // Spot is selected, use the selected icon/button
@@ -450,6 +483,10 @@ public class GLE_ParkSpot extends AppCompatActivity {
             } else {
                 spotImageResource = R.drawable.selectedcarspot;
             }
+
+            // Update the parkspottext TextView with the selected spot name
+            TextView parkspottext = findViewById(R.id.parkspottext);
+            parkspottext.setText("Parking Spot Taken: " + spotName);
         } else {
             // Spot is available, use the available icon/button
             if (spotImageView.getId() == R.id.A2 || spotImageView.getId() == R.id.B2 ||
@@ -460,16 +497,16 @@ public class GLE_ParkSpot extends AppCompatActivity {
             } else {
                 spotImageResource = R.drawable.availablecarspot;
             }
+
+            // Update the parkspottext TextView with the available status
+            //TextView parkspottext = findViewById(R.id.parkspottext);
+            //parkspottext.setText("Parking Spot Taken: Available");
         }
 
         // Set the image resource for the parking spot ImageView
         spotImageView.setImageResource(spotImageResource);
-
-        // Update the parkspottext TextView
-        TextView parkspottext = findViewById(R.id.parkspottext);
-        // Update the text based on the availability
-        parkspottext.setText("Parking Spot Taken: " + (isSelected ? "Selected" : "Available"));
     }
+
 
 
 
@@ -479,7 +516,10 @@ public class GLE_ParkSpot extends AppCompatActivity {
     private String currentlySelectedSpotId = "";
 
 
-    // Inside toggleSpot method
+
+
+
+    // Inside the toggleAvailableSpot method
     private void toggleAvailableSpot(ImageView imageView, boolean isSelected) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String spotName = getSpotName(imageView);
@@ -494,7 +534,6 @@ public class GLE_ParkSpot extends AppCompatActivity {
 
         // If a spot is currently selected, unselect it
         if (!currentlySelectedSpotId.isEmpty()) {
-            // Get the previously selected spot's ImageView
             ImageView previousSelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
             unselectSpot(previousSelectedSpot, true);
         }
@@ -504,29 +543,37 @@ public class GLE_ParkSpot extends AppCompatActivity {
 
         // Update the selected spot to the new value with a very short delay
         spotRef.update(spotName, updatedValue)
-                .addOnSuccessListener(aVoid -> {
-                    // Update UI for the selected/unselected spot with a very short delay
-                    Handler handler = new Handler();
-                    handler.postDelayed(() -> {
-                        runOnUiThread(() -> {
-                            if (isSelected) {
-                                unselectSpot(imageView, true);
-                            } else {
-                                updateAvailableSpotUI(imageView, true);
-                                currentlySelectedSpotId = getResources().getResourceEntryName(imageView.getId());
-                            }
-                        });
-                    }, 100); // Adjust the delay duration as needed
-                })
-                .addOnFailureListener(e -> {
-                    // Handle the failure to update the spot value
-                    // You may show a toast message or log the error
-                    Toast.makeText(GLE_ParkSpot.this, "Failed to update parking spot information", Toast.LENGTH_SHORT).show();
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Update UI for the selected/unselected spot with a very short delay
+                        Handler handler = new Handler();
+                        handler.postDelayed(() -> {
+                            runOnUiThread(() -> {
+                                if (isSelected) {
+                                    unselectSpot(imageView, true);
+                                } else {
+                                    updateAvailableSpotUI(imageView, true);
+                                    currentlySelectedSpotId = getResources().getResourceEntryName(imageView.getId());
+                                }
+                            });
+                        }, 100); // Adjust the delay duration as needed
+                    } else {
+                        // Handle the failure to update the spot value
+                        // You may show a toast message or log the error
+                        Toast.makeText(GLE_ParkSpot.this, "Failed to update parking spot information", Toast.LENGTH_SHORT).show();
+                    }
                 });
+
+
+        // Update the totalstandardtext TextView
+        TextView totalStandardText = findViewById(R.id.totalstandardtext);
+        if (isSelected) {
+            totalStandardText.setText("Total Price: ₱5.00");
+        } else {
+            totalStandardText.setText("Total Price: ₱00");
+        }
+
     }
-
-
-
 
 
 
@@ -591,9 +638,32 @@ public class GLE_ParkSpot extends AppCompatActivity {
         // ...
 
         // Update the parkspottext TextView
-        TextView parkspottext = findViewById(R.id.parkspottext);
-        parkspottext.setText("Parking Spot Taken: Available");
+        //TextView parkspottext = findViewById(R.id.parkspottext);
+        //parkspottext.setText("Parking Spot Taken: Available");
     }
+
+
+
+
+
+    private void setupSpotClickListener(ImageView spotImageView) {
+        spotImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isSpotAvailable(spotImageView)) {
+                    // Assuming the default state is unselected
+                    boolean isSelected = false;
+                    handleSpotClick(spotImageView, isSelected);
+                }
+            }
+        });
+    }
+
+    private void handleSpotClick(ImageView spotImageView, boolean isSelected) {
+        toggleAvailableSpot(spotImageView, isSelected);
+    }
+
+
 
 
 
@@ -670,6 +740,9 @@ public class GLE_ParkSpot extends AppCompatActivity {
 
         // Add the selected parking spot text as an extra to the intent
         intent.putExtra("selectedSpotText", selectedSpotText);
+
+        // Add information indicating that the user is coming from NGE_ParkSpot
+        intent.putExtra("fromNGEParkSpot", true);
 
         // Start the Car_Vehicle_Limit page
         startActivity(intent);
