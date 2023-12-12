@@ -19,6 +19,7 @@ import com.google.firebase.firestore.DocumentReference;
 
 import android.widget.Toast;
 import android.os.Handler;
+import android.util.Log;
 
 
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,10 @@ public class NGE_ParkSpot extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private DocumentReference ngeDocumentRef;
+
+    private boolean navigateToNextPage = false;
+    private boolean isCheckoutButtonClicked = false;
+
 
 
     @Override
@@ -694,12 +699,51 @@ public class NGE_ParkSpot extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("NGE_ParkSpot", "onPause");
 
-        // Check if a spot is currently selected
+    private void revertToZeroIfSelected() {
+        if (navigateToNextPage) {
+            // Do not revert to zero if navigating to the next page
+            navigateToNextPage = false;
+            return;
+        }
+
+        // Revert to zero logic here
+        // ...
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+
+        // If the checkout button was clicked, skip the logic to revert the value back to 0
+        if (isCheckoutButtonClicked) {
+            return;
+        }
+
+
+        if (!isCheckoutButtonClicked) {
+            revertToZeroIfSelected();
+        }
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Handle back button of the page
+        revertIfNecessary();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Handle app exit
+        revertIfNecessary();
+    }
+
+
+    private void revertIfNecessary() {
         if (!currentlySelectedSpotId.isEmpty()) {
             // Get the ImageView of the currently selected spot
             ImageView currentlySelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
@@ -711,6 +755,35 @@ public class NGE_ParkSpot extends AppCompatActivity {
     }
 
 
+    public void onCheckoutButtonClick(View view) {
+        // Handle checkout button click logic
+        // ...
+
+        // Set the flag to true to indicate that checkout button is clicked
+        isCheckoutButtonClicked = true;
+    }
+
+
+
+    private void handleBackPressed() {
+        // Check if a spot is currently selected
+        if (!currentlySelectedSpotId.isEmpty()) {
+            // Get the ImageView of the currently selected spot
+            ImageView currentlySelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
+
+            // Unselect the spot and update the database
+            unselectSpot(currentlySelectedSpot, true);
+            currentlySelectedSpotId = "";  // Reset the currentlySelectedSpotId
+        }
+
+        // Continue with the default back button behavior
+        super.onBackPressed();
+    }
+
+
+
+
+
 
 
     private boolean isSpotSelected(ImageView imageView) {
@@ -718,8 +791,6 @@ public class NGE_ParkSpot extends AppCompatActivity {
         int resourceId = (int) imageView.getTag();
         return resourceId == R.drawable.selectedcarspot || resourceId == R.drawable.selectedcarspot2;
     }
-
-
 
 
 
@@ -912,9 +983,12 @@ public class NGE_ParkSpot extends AppCompatActivity {
             totalStandardText.setText("Total Price: ₱00");
         }
 
+        // Reset the flag to false after performing the checkout button logic
+        isCheckoutButtonClicked = false;
+
+        // Revert to zero if selected logic
+        revertToZeroIfSelected();
     }
-
-
 
 
     // Inside isSpotAvailable method
@@ -1105,6 +1179,8 @@ public class NGE_ParkSpot extends AppCompatActivity {
         Intent intent = new Intent(NGE_ParkSpot.this, NGE_Parking_Map.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        // Add a log if revertIfNecessary was not called
+        Log.d("NGE_ParkSpot", "revertIfNecessary was not called");
     }
 
     public void navigateToHome(View view) {

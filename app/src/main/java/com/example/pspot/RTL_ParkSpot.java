@@ -57,6 +57,13 @@ public class RTL_ParkSpot extends AppCompatActivity {
     private boolean n3Selected = false;
     private boolean n4Selected = false;
 
+    private FirebaseFirestore db;
+    private DocumentReference ngeDocumentRef;
+
+    private boolean navigateToNextPage = false;
+    private boolean isCheckoutButtonClicked = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +72,6 @@ public class RTL_ParkSpot extends AppCompatActivity {
 
         // Initialize Firebase
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
 
 // Find the parking spot ImageView elements
         ImageView a1ImageView = findViewById(R.id.A1);
@@ -571,15 +577,65 @@ public class RTL_ParkSpot extends AppCompatActivity {
     }
 
 
+    private void revertToZeroIfSelected() {
+        if (navigateToNextPage) {
+            // Do not revert to zero if navigating to the next page
+            navigateToNextPage = false;
+            return;
+        }
+
+        // Revert to zero logic here
+        // ...
+    }
+
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+
+        // If the checkout button was clicked, skip the logic to revert the value back to 0
+        if (isCheckoutButtonClicked) {
+            return;
+        }
+
+
+        if (!isCheckoutButtonClicked) {
+            revertToZeroIfSelected();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // If the checkout button was clicked, skip the logic to revert the value back to 0
+        if (isCheckoutButtonClicked) {
+            return;
+        }
+
+        if (!isCheckoutButtonClicked) {
+            revertToZeroIfSelected();
+        }
+    }
 
 
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("RTL_ParkSpot", "onPause");
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Handle back button of the page
+        revertIfNecessary();
+    }
 
-        // Check if a spot is currently selected
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Handle app exit
+        revertIfNecessary();
+    }
+
+
+    private void revertIfNecessary() {
         if (!currentlySelectedSpotId.isEmpty()) {
             // Get the ImageView of the currently selected spot
             ImageView currentlySelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
@@ -590,6 +646,71 @@ public class RTL_ParkSpot extends AppCompatActivity {
         }
     }
 
+
+    public void onCheckoutButtonClick(View view) {
+        // Handle checkout button click logic
+        // ...
+
+        // Set the flag to true to indicate that checkout button is clicked
+        isCheckoutButtonClicked = true;
+    }
+
+
+
+    private void handleBackPressed() {
+        // Check if a spot is currently selected
+        if (!currentlySelectedSpotId.isEmpty()) {
+            // Get the ImageView of the currently selected spot
+            ImageView currentlySelectedSpot = findViewById(getResources().getIdentifier(currentlySelectedSpotId, "id", getPackageName()));
+
+            // Unselect the spot and update the database
+            unselectSpot(currentlySelectedSpot, true);
+            currentlySelectedSpotId = "";  // Reset the currentlySelectedSpotId
+        }
+
+        // Continue with the default back button behavior
+        super.onBackPressed();
+    }
+
+
+
+
+
+
+
+    private boolean isSpotSelected(ImageView imageView) {
+        // Determine the selected status based on the image resource
+        int resourceId = (int) imageView.getTag();
+        return resourceId == R.drawable.selectedcarspot || resourceId == R.drawable.selectedcarspot2;
+    }
+
+
+
+    // Fetch parking spot data from Firestore
+    private void fetchParkingSpotData() {
+        ngeDocumentRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult() != null) {
+                // Retrieve parking spot data from Firestore and update UI
+                // You need to implement this method based on your Firestore schema
+                // Example: updateParkingSpotUI(task.getResult().toObject(YourParkingSpotDataClass.class));
+            }
+        });
+    }
+
+
+
+
+    // Update parking spot data in Firestore
+    private void updateFirestore(String spotName, boolean isSelected) {
+        // Update the corresponding field in the Firestore document
+        ngeDocumentRef.update(spotName, isSelected)
+                .addOnSuccessListener(aVoid -> {
+                    // Handle successful update
+                })
+                .addOnFailureListener(e -> {
+                    // Handle failure
+                });
+    }
 
 
 
@@ -689,6 +810,8 @@ public class RTL_ParkSpot extends AppCompatActivity {
 
     // Inside the toggleAvailableSpot method
     private void toggleAvailableSpot(ImageView imageView, boolean isSelected) {
+        // Set the flag to true when the checkout button is clicked
+        isCheckoutButtonClicked = true;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String spotName = getSpotName(imageView);
         DocumentReference spotRef = db.collection("parkingSpots").document("RTL");
@@ -741,10 +864,12 @@ public class RTL_ParkSpot extends AppCompatActivity {
             totalStandardText.setText("Total Price: ₱00");
         }
 
+        // Reset the flag to false after performing the checkout button logic
+        isCheckoutButtonClicked = false;
+
+        // Revert to zero if selected logic
+        revertToZeroIfSelected();
     }
-
-
-
 
 
     // Inside isSpotAvailable method
@@ -815,7 +940,6 @@ public class RTL_ParkSpot extends AppCompatActivity {
         //TextView parkspottext = findViewById(R.id.parkspottext);
         //parkspottext.setText("Parking Spot Taken: Available");
     }
-
 
 
 
