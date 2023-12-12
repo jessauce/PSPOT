@@ -784,7 +784,7 @@ public class Main_ParkSpot extends AppCompatActivity {
         // Update the totalstandardtext TextView
         TextView totalStandardText = findViewById(R.id.totalstandardtext);
         if (isSelected) {
-            totalStandardText.setText("Total Price: ₱5.00");
+            totalStandardText.setText("Total Price: ₱10.00");
         } else {
             totalStandardText.setText("Total Price: ₱00");
         }
@@ -984,6 +984,7 @@ public class Main_ParkSpot extends AppCompatActivity {
         // Get the selected parking spot text (without the "Parking Spot Taken" prefix)
         TextView parkspottext = findViewById(R.id.parkspottext);
         String selectedSpotText = parkspottext.getText().toString();
+
         // Remove the "Parking Spot Taken: " prefix
         selectedSpotText = selectedSpotText.replace("Parking Spot Taken: ", "");
 

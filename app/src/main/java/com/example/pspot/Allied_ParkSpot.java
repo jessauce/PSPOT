@@ -834,7 +834,7 @@ public class Allied_ParkSpot extends AppCompatActivity {
         // Update the totalstandardtext TextView
         TextView totalStandardText = findViewById(R.id.totalstandardtext);
         if (isSelected) {
-            totalStandardText.setText("Total Price: ₱5.00");
+            totalStandardText.setText("Total Price: ₱10.00");
         } else {
             totalStandardText.setText("Total Price: ₱00");
         }

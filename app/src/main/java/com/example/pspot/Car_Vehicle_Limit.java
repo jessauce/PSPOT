@@ -20,6 +20,8 @@ import android.widget.TimePicker;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import java.util.Calendar;
+
 public class Car_Vehicle_Limit extends AppCompatActivity {
 
     private boolean isProgressShowing = false;
@@ -130,9 +132,36 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
         timePickerDialog.show();
     }
 
+    private void updatePrice() {
+        // Create Calendar instances for start and end times
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, startHour);
+        startTime.set(Calendar.MINUTE, startMinute);
+
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(Calendar.HOUR_OF_DAY, endHour);
+        endTime.set(Calendar.MINUTE, endMinute);
+
+        // Calculate the difference in milliseconds between start and end times
+        long durationMillis = endTime.getTimeInMillis() - startTime.getTimeInMillis();
+
+        // Calculate the duration in hours
+        int durationHours = (int) (durationMillis / (60 * 60 * 1000));
+
+        // Calculate the price (Php 10 per hour)
+        int price = durationHours * 10;
+
+        // Update the Pricetext TextView with the calculated price
+        TextView pricetext = findViewById(R.id.Pricetext);
+        pricetext.setText("₱ " + price);
+    }
+
     private void updateTimeButtonText(Button button, int hour, int minute) {
         String time = String.format("%02d:%02d ▼", hour, minute);
         button.setText(time);
+
+        // Call updatePrice when either start or end time is changed
+        updatePrice();
     }
 
     public void navigateToBack(View view) {
@@ -184,7 +213,23 @@ public class Car_Vehicle_Limit extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Handle the click event to navigate to the Gcash page
+
+                        // Retrieve the price from the Pricetext TextView
+                        TextView priceTextView = findViewById(R.id.Pricetext);
+                        String priceString = priceTextView.getText().toString();
+
+                        TextView ParkSpotTextView = findViewById(R.id.Parkingtext);
+                        String parkspotString = ParkSpotTextView.getText().toString();
+
+                        TextView PlotTextView = findViewById(R.id.Plottext);
+                        String plotString = PlotTextView.getText().toString();
+
+                        // Pass the numeric part to the Gcash activity
                         Intent intent = new Intent(Car_Vehicle_Limit.this, Gcash.class);
+                        intent.putExtra("totalPrice", priceString);
+                        intent.putExtra("parkspot", parkspotString);
+                        intent.putExtra("plot", plotString);
+
                         intent.putExtra("ParkingText", parkingtext.getText().toString());
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
