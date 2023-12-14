@@ -968,20 +968,14 @@ public class NGE_ParkSpot extends AppCompatActivity {
                                 }
                             });
                         }, 100); // Adjust the delay duration as needed
+
+
                     } else {
                         // Handle the failure to update the spot value
                         // You may show a toast message or log the error
                         Toast.makeText(NGE_ParkSpot.this, "Failed to update parking spot information", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-        // Update the totalstandardtext TextView
-        TextView totalStandardText = findViewById(R.id.totalstandardtext);
-        if (isSelected) {
-            totalStandardText.setText("Total Price: ₱10.00");
-        } else {
-            totalStandardText.setText("Total Price: ₱00");
-        }
 
         // Reset the flag to false after performing the checkout button logic
         isCheckoutButtonClicked = false;

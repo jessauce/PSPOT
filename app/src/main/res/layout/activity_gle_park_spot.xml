@@ -388,16 +388,6 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/totalstandardtext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="8dp"
-            android:text="Total Price: ₱00"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
         <Button
             android:id="@+id/btnCheckout"
             android:layout_width="340dp"

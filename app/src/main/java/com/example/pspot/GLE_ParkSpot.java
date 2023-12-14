@@ -653,13 +653,6 @@ public class GLE_ParkSpot extends AppCompatActivity {
                     }
                 });
 
-        // Update the totalstandardtext TextView
-        TextView totalStandardText = findViewById(R.id.totalstandardtext);
-        if (isSelected) {
-            totalStandardText.setText("Total Price: ₱5.00");
-        } else {
-            totalStandardText.setText("Total Price: ₱00");
-        }
 
         // Reset the flag to false after performing the checkout button logic
         isCheckoutButtonClicked = false;
